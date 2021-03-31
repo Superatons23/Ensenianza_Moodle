@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Enseñanza</string>
+    <string name="hola">¡Hola!</string>
+    <string name="padretutor">Padre/Tutor</string>
+    <string name="profesor">Profesor</string>
+    <string name="Registrate">Registrate</string>
 </resources>
