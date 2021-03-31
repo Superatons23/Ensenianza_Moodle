@@ -9,6 +9,8 @@
     <string name="correo">correo</string>
     <string name="contraseña">contraseña</string>
     <string name="registrarme">Registrarme</string>
+    <string name="ingresar">Ingresar</string>
     <string name="confirmar_contraseña">confirmar contraseña</string>
     <string name="correo_de_respaldo">correo de respaldo</string>
+    <string name="buenos_dias">Buenos días</string>
 </resources>
