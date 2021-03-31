@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="verdeLima">#AAC929</color>
     <color name="grisTexto">#707070</color>
+    <color name="grisBackground">#6BFFFFFF</color>
+    <color name="grisBackground2">#2EFFFFFF</color>
 </resources>

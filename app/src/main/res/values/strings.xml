@@ -4,4 +4,11 @@
     <string name="padretutor">Padre/Tutor</string>
     <string name="profesor">Profesor</string>
     <string name="Registrate">Registrate</string>
+    <string name="bienvenido">¡Bienvenido!</string>
+    <string name="registro">Registro</string>
+    <string name="correo">correo</string>
+    <string name="contraseña">contraseña</string>
+    <string name="registrarme">Registrarme</string>
+    <string name="confirmar_contraseña">confirmar contraseña</string>
+    <string name="correo_de_respaldo">correo de respaldo</string>
 </resources>
