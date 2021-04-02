@@ -13,4 +13,7 @@
     <string name="confirmar_contraseña">confirmar contraseña</string>
     <string name="correo_de_respaldo">correo de respaldo</string>
     <string name="buenos_dias">Buenos días</string>
+    <string name="facebook">Facebook</string>
+    <string name="gmail">Gmail</string>
+    <string name="conectar">Conectar con</string>
 </resources>

@@ -111,6 +111,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
         android:layout_marginBottom="180dp"
         android:background="@drawable/rounded_button"
         android:fontFamily="@font/gotham_bold"
@@ -122,6 +123,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/btnRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
