@@ -10,12 +10,14 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:contentDescription="imageniniciosesion"
-        android:src="@drawable/ic_launcher_foreground"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ninio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"></ImageView>
@@ -42,28 +44,30 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.049"></TextView>
+        app:layout_constraintVertical_bias="0.120000005"></TextView>
 
     <ImageButton
         android:id="@+id/btnPadres"
-        android:layout_width="131dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="93dp"
+        android:layout_height="93dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="70dp"
         android:background="#0000"
-        android:src="@drawable/ic_baseline_account_circle_24"
+        android:scaleType="centerCrop"
+        android:src="@drawable/padre"
         android:tooltipText="@string/padretutor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"></ImageButton>
 
     <ImageButton
         android:id="@+id/btnProfesor"
-        android:layout_width="132dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="80dp"
         android:background="#0000"
-        android:src="@drawable/ic_baseline_account_circle_24"
+        android:src="@drawable/profesorwhite"
+
         android:tooltipText="@string/padretutor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"></ImageButton>
@@ -72,14 +76,14 @@
         android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="92dp"
         android:fontFamily="@font/roboto_bold"
         android:gravity="center_horizontal"
         android:text="@string/profesor"
         android:textColor="@color/grisTexto"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistro"
+        app:layout_constraintEnd_toEndOf="@+id/btnProfesor"
+        app:layout_constraintStart_toStartOf="@+id/btnProfesor"
         app:layout_constraintTop_toBottomOf="@+id/btnProfesor"
         app:layout_constraintVertical_bias="0.0"></TextView>
 
@@ -87,14 +91,14 @@
         android:id="@+id/textView4"
         android:layout_width="129dp"
         android:layout_height="25dp"
-        android:layout_marginStart="64dp"
         android:fontFamily="@font/roboto_bold"
         android:gravity="center_horizontal"
         android:text="@string/padretutor"
         android:textColor="@color/grisTexto"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistro"
+        app:layout_constraintEnd_toEndOf="@+id/btnPadres"
+        app:layout_constraintStart_toStartOf="@+id/btnPadres"
         app:layout_constraintTop_toBottomOf="@+id/btnPadres"
         app:layout_constraintVertical_bias="0.0"></TextView>
 
@@ -103,14 +107,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/transparent_button"
         android:fontFamily="@font/verdanab"
         android:text="@string/Registrate"
+        android:textAllCaps="false"
         android:textColor="@color/grisTexto"
         android:textSize="20sp"
-        android:background="@drawable/transparent_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="40dp"
+        android:layout_height="36dp"
+        android:background="@color/boton"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01"
+        app:srcCompat="@drawable/logoconopacidad" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
