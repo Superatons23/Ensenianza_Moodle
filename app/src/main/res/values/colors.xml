@@ -12,4 +12,8 @@
     <color name="grisBackground">#6BFFFFFF</color>
     <color name="grisBackground2">#2EFFFFFF</color>
     <color name="boton">#00000000</color>
+    <color name="amarillo">#FFEB3B</color>
+    <color name="azulOscuro">#02596E</color>
+    <color name="azulClaro">#A6D7E4</color>
+    <color name="grisBackground3">#DFDFDF</color>
 </resources>

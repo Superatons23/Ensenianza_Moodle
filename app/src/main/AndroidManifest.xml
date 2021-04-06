@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Enseñanza">
-        <activity android:name=".PantallaConectar"></activity>
+        <activity android:name=".PantallaMensaje"></activity>
+        <activity android:name=".PantallaMensajes" />
+        <activity android:name=".PantallaPerfil" />
+        <activity android:name=".PantallaConectar" />
         <activity android:name=".PantallaLogin_2" />
         <activity android:name=".PantallaRegistrate" />
         <activity android:name=".PantallaLogin">

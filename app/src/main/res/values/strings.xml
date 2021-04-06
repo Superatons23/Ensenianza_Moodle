@@ -15,5 +15,13 @@
     <string name="buenos_dias">Buenos días</string>
     <string name="facebook">Facebook</string>
     <string name="gmail">Gmail</string>
+    <string name="Responsable">Responsable</string>
+    <string name="nombreResponsable">Ana Pereira</string>
+    <string name="correoResponsable">Ana_Pereirac74@gmail.com</string>
+    <string name="nombreAlumno">Ana Guzman</string>
+    <string name="grado">4° B</string>
+    <string name="desempeño">Desempeño del alumno en 4° B</string>
     <string name="conectar">Conectar con</string>
+    <string name="buscar">  Buscar</string>
+    <string name="mensajes">Mensajes</string>
 </resources>
