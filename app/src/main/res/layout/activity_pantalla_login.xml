@@ -118,7 +118,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btnHome"
         android:layout_width="@dimen/homeButtonWidth"
         android:layout_height="@dimen/homeButtonWidth"
         android:background="@color/boton"

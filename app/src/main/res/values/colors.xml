@@ -15,4 +15,5 @@
     <color name="amarillo">#FFEB3B</color>
     <color name="azulOscuro">#02596E</color>
     <color name="azulClaro">#A6D7E4</color>
+    <color name="grisBackground3">#DFDFDF</color>
 </resources>
