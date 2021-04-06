@@ -119,8 +119,8 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="40dp"
-        android:layout_height="36dp"
+        android:layout_width="@dimen/homeButtonWidth"
+        android:layout_height="@dimen/homeButtonWidth"
         android:background="@color/boton"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
