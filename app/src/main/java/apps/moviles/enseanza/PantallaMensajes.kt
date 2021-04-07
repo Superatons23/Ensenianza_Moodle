@@ -11,6 +11,7 @@ import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.activity_pantalla_mensaje.view.*
 import kotlinx.android.synthetic.main.activity_pantalla_mensajes.*
 import kotlinx.android.synthetic.main.activity_pantalla_mensajes.view.*
+import kotlinx.android.synthetic.main.activity_pantalla_perfil.*
 
 class PantallaMensajes : AppCompatActivity() {
     var adapter: MensajesAdapter? = null

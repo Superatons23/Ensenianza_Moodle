@@ -21,7 +21,7 @@ class PantallaLogin : AppCompatActivity() {
             startActivity(Intent(this, PantallaRegistrate::class.java))
         }
         btnHome.setOnClickListener(){
-            startActivity(Intent(this, PantallaMensajes::class.java))
+            startActivity(Intent(this, PantallaClases::class.java))
         }
     }
 }

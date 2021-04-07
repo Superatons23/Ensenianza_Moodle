@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_pantalla_login.*
+import kotlinx.android.synthetic.main.activity_pantalla_login.btnRegistro
+import kotlinx.android.synthetic.main.activity_pantalla_login_2.*
 
 class PantallaLogin_2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,6 +14,9 @@ class PantallaLogin_2 : AppCompatActivity() {
 
         btnRegistro.setOnClickListener(){
             startActivity(Intent(this, PantallaRegistrate::class.java))
+        }
+        btnIngresar.setOnClickListener(){
+            startActivity(Intent(this, PantallaPerfil::class.java))
         }
     }
 }
