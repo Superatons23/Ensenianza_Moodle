@@ -7,14 +7,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapter(val clases: ArrayList<Clase>) :
+class RecyclerAdapter(val clases: ArrayList<Clase>,val listener:View.OnClickListener) : View.OnClickListener,
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.activity_pantalla_principal_clase, parent, false);
-     // view.setBackgroundResource(R.drawable.rounded_edit_text);
+        view.setOnClickListener(this);
         return ViewHolder(view);
     }
 
@@ -33,6 +33,12 @@ class RecyclerAdapter(val clases: ArrayList<Clase>) :
         val nombreClase: TextView = itemView.findViewById(R.id.prin_nombre_clase);
         val nombreProfesor: TextView = itemView.findViewById(R.id.prin_nombre_profesor);
         val icono: ImageView = itemView.findViewById(R.id.prin_icono);
+    }
+
+    override fun onClick(p0: View?) {
+        if(listener!==null){
+            listener.onClick(p0);
+        }
     }
 
 }
