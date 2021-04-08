@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Enseñanza">
+
+        <activity android:name=".PantallaTutoriales"></activity>
+        <activity android:name=".PantallaTutorial" />
+        <activity android:name=".PantallaClaseGrabada" />
+        <activity android:name=".PantallaClasesGrabadas" />
         <activity android:name=".PantallaClases" />
         <activity android:name=".PantallaClase" />
         <activity android:name=".PantallaMensaje" />

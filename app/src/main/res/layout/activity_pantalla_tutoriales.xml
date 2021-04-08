@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/gradient_background_2"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_3"
     tools:context=".PantallaClases">
 
 
@@ -21,22 +21,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
-        app:layout_constraintVertical_bias="0.51"></GridView>
+        app:layout_constraintTop_toBottomOf="@+id/tvTutoriales"></GridView>
 
     <TextView
-        android:id="@+id/textView19"
-        android:layout_width="102dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="44dp"
-        android:gravity="center_horizontal"
+        android:id="@+id/tvTutoriales"
+        android:layout_width="380dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="@string/clases"
+        android:gravity="center_horizontal"
+        android:text="@string/asesorias"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

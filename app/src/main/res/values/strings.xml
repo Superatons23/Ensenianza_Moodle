@@ -25,4 +25,6 @@
     <string name="buscar">  Buscar</string>
     <string name="clases">Clases</string>
     <string name="mensajes">Mensajes</string>
+    <string name="clasesGrabadas">Clases Grabadas</string>
+    <string name="asesorias">¡Hola espero ayudarte! Asesorias</string>
 </resources>
