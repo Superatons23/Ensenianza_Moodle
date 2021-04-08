@@ -10,6 +10,10 @@
     <color name="verdeLima">#AAC929</color>
     <color name="grisTexto">#707070</color>
     <color name="grisBackground">#6BFFFFFF</color>
+
+    <!-- color usado para la pantalla principal-->
+    <color name="prin_grisBackground">#99707070</color>
+
     <color name="grisBackground2">#2EFFFFFF</color>
     <color name="boton">#00000000</color>
     <color name="amarillo">#FFEB3B</color>

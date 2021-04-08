@@ -8,11 +8,11 @@ import kotlinx.android.synthetic.main.activity_pantalla_login.*
 class PantallaLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pantalla_login)
+        setContentView(R.layout.activity_pantalla_login);
 
 
         btnPadres.setOnClickListener(){
-            startActivity(Intent(this, PantallaLogin_2::class.java))
+            startActivity(Intent(this, PantallaPrincipal::class.java))
         }
         btnProfesor.setOnClickListener(){
             startActivity(Intent(this, PantallaLogin_2::class.java))
