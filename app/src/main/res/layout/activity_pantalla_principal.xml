@@ -4,46 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background_2"
-    tools:context=".PantallaPrincipal">
-
+    android:background="@drawable/gradient_background_2">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:orientation="vertical">
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:weightSum="4">
 
         <!-- iconos-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <LinearLayout
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:id="@+id/btnHome"
-                    android:layout_width="@dimen/homeButtonWidth"
-                    android:layout_height="@dimen/homeButtonWidth"
-                    android:layout_gravity="right"
-                    android:background="@color/boton"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/logoconopacidad" />
-            </LinearLayout>
-
+            android:layout_height="0dip"
+            android:layout_weight=".2"
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="0dip"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5"
                 android:orientation="vertical">
 
                 <ImageButton
@@ -63,7 +44,9 @@
         <LinearLayout
             android:id="@+id/prin_imagen_perfil_lyt"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:weightSum="2"
             android:orientation="vertical">
             <!-- imagen, grupo y nombre-->
             <LinearLayout
@@ -120,14 +103,16 @@
             <!-- seek bar-->
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1.5"
                 android:layout_gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <SeekBar
                     android:id="@+id/seekBar_luminosite"
-                    android:layout_width="400dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="300dp"
+                    android:layout_height="0dip"
+                    android:layout_weight=".6"
                     android:progress="75"
                     android:progressDrawable="@drawable/seekbar_style"
                     android:splitTrack="false"
@@ -137,10 +122,10 @@
 
         </LinearLayout>
 
-        <!-- icono de mensajes-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="1.4"
             android:orientation="vertical"
             android:weightSum="2">
 
@@ -150,8 +135,7 @@
                 android:layout_height="0dip"
                 android:layout_weight=".5"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal"
-                android:weightSum="1">
+                android:orientation="horizontal">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -192,7 +176,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
-                    android:layout_weight=".8"
+                    android:layout_weight="1"
                     android:background="@drawable/rounded_options"
                     android:orientation="horizontal">
 
@@ -226,7 +210,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
                     android:layout_marginTop="10dp"
-                    android:layout_weight=".8"
+                    android:layout_weight="1"
                     android:background="@drawable/rounded_options"
                     android:orientation="horizontal">
 
@@ -258,66 +242,73 @@
 
             </LinearLayout>
         </LinearLayout>
-        <!--Clases-->
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
+            android:layout_height="0dip"
+            android:layout_weight="1.4"
+            android:orientation="vertical"
+            android:weightSum="1">
 
-            <TextView
-                android:id="@+id/tv_nombreProfesor"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:fontFamily="@font/poppins_extralight"
-                android:gravity="left"
-                android:text="Clases"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:layout_marginTop="10dp"
+                android:layout_weight=".5"
+                android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/print_recycler_view"
+                <TextView
+                    android:id="@+id/tv_nombreProfesor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/poppins_extralight"
+                    android:gravity="left"
+                    android:text="Clases"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/print_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+            </LinearLayout>
+
+            <!--tutorias-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight=".5"
+                android:orientation="vertical">
 
-                android:scrollbars="horizontal">
+                <TextView
 
-            </androidx.recyclerview.widget.RecyclerView>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/poppins_extralight"
+                    android:gravity="left"
+                    android:text="Tutorias"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/print_recycler_view_tutorias"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal">
 
-        </LinearLayout>
-
-        <!--tutorias-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:fontFamily="@font/poppins_extralight"
-                android:gravity="left"
-                android:text="Clases"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/print_recycler_view_tutorias"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="horizontal">
-
-            </androidx.recyclerview.widget.RecyclerView>
+                </androidx.recyclerview.widget.RecyclerView>
 
 
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
-
-
 </RelativeLayout>
