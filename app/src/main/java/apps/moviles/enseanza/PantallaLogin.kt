@@ -21,7 +21,7 @@ class PantallaLogin : AppCompatActivity() {
             startActivity(Intent(this, PantallaRegistrate::class.java))
         }
         btnHome.setOnClickListener(){
-            startActivity(Intent(this, PantallaClasesGrabadas::class.java))
+            startActivity(Intent(this, PantallaVideo::class.java))
         }
     }
 }

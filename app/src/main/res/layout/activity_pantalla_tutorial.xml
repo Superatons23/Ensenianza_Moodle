@@ -19,13 +19,14 @@
 
         <ImageButton
             android:id="@+id/thumbnail"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:background="@drawable/rounded_button"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/thumbnail1" />
+            app:srcCompat="@drawable/thumbnail2" />
 
     </androidx.cardview.widget.CardView>
 
