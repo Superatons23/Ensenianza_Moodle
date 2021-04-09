@@ -16,7 +16,7 @@ class PantallaLogin_2 : AppCompatActivity() {
             startActivity(Intent(this, PantallaRegistrate::class.java))
         }
         btnIngresar.setOnClickListener(){
-            startActivity(Intent(this, PantallaPerfil::class.java))
+            startActivity(Intent(this, PantallaRecordarUsuario::class.java))
         }
     }
 }
