@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@drawable/gradient_background_2"
     tools:context=".PantallaPrincipal">
 
@@ -47,8 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1"
-            android:weightSum="2"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="2">
             <!-- imagen, grupo y nombre-->
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -105,8 +106,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dip"
-                android:layout_weight="1.5"
                 android:layout_gravity="center_horizontal"
+                android:layout_weight="1.5"
                 android:orientation="vertical">
 
                 <SeekBar
@@ -253,7 +254,9 @@
             android:orientation="vertical"
             android:weightSum="1">
 
+
             <LinearLayout
+                android:id="@+id/lyt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -275,6 +278,7 @@
                     android:id="@+id/print_recycler_view_clases"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_nombreProfesor"
                     android:scrollbars="horizontal">
 
                 </androidx.recyclerview.widget.RecyclerView>
@@ -291,7 +295,7 @@
                 android:orientation="vertical">
 
                 <TextView
-
+                    android:id="@+id/prin_txt_tutorias"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
@@ -306,13 +310,38 @@
                     android:id="@+id/print_recycler_view_tutorias"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/prin_txt_tutorias"
                     android:scrollbars="horizontal">
 
                 </androidx.recyclerview.widget.RecyclerView>
 
 
             </LinearLayout>
+
+
         </LinearLayout>
 
+
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="15dp"
+
+
+            android:backgroundTint="@color/white"
+            android:src="@drawable/massnfondo"
+            app:fabSize="mini" />
+
+    </RelativeLayout>
 </RelativeLayout>
