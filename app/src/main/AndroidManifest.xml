@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Enseñanza">
+        <activity android:name=".PantallaRecordarUsuario"></activity>
         <activity android:name=".PantallaTutoriales" />
         <activity android:name=".PantallaTutorial" />
         <activity android:name=".PantallaClaseGrabada" />

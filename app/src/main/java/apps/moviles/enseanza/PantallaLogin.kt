@@ -12,7 +12,7 @@ class PantallaLogin : AppCompatActivity() {
 
 
         btnPadres.setOnClickListener(){
-            startActivity(Intent(this, PantallaPrincipal::class.java))
+            startActivity(Intent(this, PantallaLogin_2::class.java))
         }
         btnProfesor.setOnClickListener(){
             startActivity(Intent(this, PantallaLogin_2::class.java))
