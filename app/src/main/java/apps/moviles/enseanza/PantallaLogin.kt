@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_pantalla_login.*
 class PantallaLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pantalla_login)
+        setContentView(R.layout.activity_pantalla_login);
 
 
         btnPadres.setOnClickListener(){
@@ -21,7 +21,7 @@ class PantallaLogin : AppCompatActivity() {
             startActivity(Intent(this, PantallaRegistrate::class.java))
         }
         btnHome.setOnClickListener(){
-            startActivity(Intent(this, PantallaClases::class.java))
+            startActivity(Intent(this, PantallaVideo::class.java))
         }
     }
 }

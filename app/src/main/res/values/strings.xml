@@ -38,4 +38,11 @@
     <string name="Geografia">Geografía</string>
     <string name="MtraGeografia">Mtra. Ana Marquez</string>
 
+    <string name="clasesGrabadas">Clases Grabadas</string>
+    <string name="recordar">Recordar Usuario</string>
+    <string name="asesorias">¡Hola espero ayudarte! Asesorias</string>
+    <string name="si">SI</string>
+    <string name="Masvideos">Más Videos</string>
+    <string name="comentarios">Comentarios</string>
+    <string name="mastarde">Mas tarde</string>
 </resources>

@@ -9,9 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Enseñanza">
-        <activity android:name=".PantallaClases"></activity>
+        <activity android:name=".PantallaVideo"></activity>
+        <activity android:name=".PantallaRecordarUsuario" />
+        <activity android:name=".PantallaTutoriales" />
+        <activity android:name=".PantallaTutorial" />
+        <activity android:name=".PantallaClaseGrabada" />
+        <activity android:name=".PantallaClasesGrabadas" />
+        <activity android:name=".PantallaClases" />
         <activity android:name=".PantallaClase" />
         <activity android:name=".PantallaMensaje" />
+        <activity android:name=".PantallaPrincipal" />
         <activity android:name=".PantallaMensajes" />
         <activity android:name=".PantallaPerfil" />
         <activity android:name=".PantallaConectar" />
@@ -32,5 +39,5 @@
             </intent-filter>
         </activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

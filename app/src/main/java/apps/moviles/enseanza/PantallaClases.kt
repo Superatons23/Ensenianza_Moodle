@@ -1,5 +1,6 @@
 package apps.moviles.enseanza
 
+import android.app.Activity
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,15 +15,18 @@ import kotlinx.android.synthetic.main.activity_pantalla_mensajes.*
 class PantallaClases : AppCompatActivity() {
     var adapter: ClasesAdapter? = null
     var clases = ArrayList<Clase>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pantalla_clases)
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pantalla_clases);
         cargarClases();
 
 
-        adapter=ClasesAdapter(this, clases)
-        gridview.adapter=adapter
+        adapter=ClasesAdapter(this, clases);
+        gridview.adapter=adapter;
     }
+
+
     fun cargarClases(){
         clases.add(Clase("Geografia", "Mtra. Ana Marquez", R.drawable.geografiawhite))
         clases.add(Clase("Geografia", "Mtra. Ana Marquez", R.drawable.geografiawhite))

@@ -3,4 +3,8 @@
 
     <dimen name="homeButtonWidth">40dp</dimen>
     <dimen name="homeButtonHeight">36dp</dimen>
+
+    <!--image btn menu-->
+    <dimen name="menuButtonWidth">50dp</dimen>
+    <dimen name="menuButtonHeight">40dp</dimen>
 </resources>

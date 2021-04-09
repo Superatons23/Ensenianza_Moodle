@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:background="@color/blancoopacidad30"
+    tools:context=".PantallaMensajes">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/tuto_icono"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="20dp"
+            app:srcCompat="@drawable/cienciasmateria" />
+
+        <TextView
+            android:id="@+id/tuto_nombreClase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Ciencias naturales"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            ></TextView>
+    </LinearLayout>
+
+
+</RelativeLayout>
