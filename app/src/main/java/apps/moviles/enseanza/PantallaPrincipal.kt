@@ -74,8 +74,14 @@ class PantallaPrincipal : AppCompatActivity() {
             startActivity(Intent(this, PantallaTutoriales::class.java))
         }
 
+          //mensajes
+        prin_btn_mensajes.setOnClickListener {
+            startActivity(Intent(this, PantallaMensajes::class.java))
+        }
 
-
+        cardView2.setOnClickListener {
+            startActivity(Intent(this, PantallaPerfil::class.java))
+        }
 
         //levarte donde estan las tareas
         print_recycler_view_clases.setOnClickListener() {
