@@ -65,8 +65,10 @@ class PantallaPrincipal : AppCompatActivity() {
         }
 //llevar al menu
         prin_btnMenu.setOnClickListener() {
-            startActivity(Intent(this, PantallaClases::class.java))
+            startActivity(Intent(this, PantallaMenu::class.java))
         }
+
+
 
         //levarte ala pantlla donde se encuentran las tareas
         prin_btn_tareas.setOnClickListener() {
