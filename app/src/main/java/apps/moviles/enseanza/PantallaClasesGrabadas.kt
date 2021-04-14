@@ -1,6 +1,7 @@
 package apps.moviles.enseanza
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -54,7 +55,10 @@ class ClasesGAdapter: BaseAdapter {
         vista.fecha.setText(clase.fecha)
         vista.thumbnail.setImageResource(clase.thumbnail)
         //vista.setBackgroundResource(R.drawable.rounded_edit_text)
-
+        vista.thumbnail.setOnClickListener(){
+            var intent= Intent(contexto, PantallaVideo::class.java)
+            contexto!!.startActivity(intent)
+        }
         return vista
     }
 
