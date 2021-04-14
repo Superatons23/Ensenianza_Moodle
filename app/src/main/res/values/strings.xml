@@ -48,5 +48,7 @@
     <string name="Asignacion6">Asignación 6</string>
     <string name="titulo_asignacion">¿Cuál es mi nacionalidad?</string>
     <string name="descripcion_asignacion">En esta actividad se realizará un resumen explicando...</string>
+    <string name="menu">Menú</string>
+
 
 </resources>
