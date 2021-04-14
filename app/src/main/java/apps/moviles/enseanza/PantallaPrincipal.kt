@@ -4,7 +4,6 @@ package apps.moviles.enseanza
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -81,6 +80,11 @@ class PantallaPrincipal : AppCompatActivity() {
         //levarte donde estan las tareas
         print_recycler_view_clases.setOnClickListener() {
             startActivity(Intent(this, PantallaTutoriales::class.java))
+        }
+
+        //menu
+        prin_btnMenu.setOnClickListener {
+            startActivity(Intent(this, PantallaMenu::class.java))
         }
 
     }

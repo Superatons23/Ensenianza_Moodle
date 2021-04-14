@@ -26,7 +26,8 @@
         <activity android:name=".PantallaConectar" />
         <activity android:name=".PantallaLogin_2" />
         <activity android:name=".PantallaRegistrate" />
-        <activity android:name=".PantallaLogin">
+        <activity android:name=".PantallaLogin"/>
+        <activity android:name=".PantallaMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

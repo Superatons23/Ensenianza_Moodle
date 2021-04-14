@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/azulOscuro"
-    tools:context=".Menu">
+    tools:context=".PantallaMenu">
 
     <ImageButton
         android:id="@+id/menu_btnMenu"
@@ -54,7 +54,7 @@
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toStartOf="@+id/mnu_informe"
             app:layout_constraintTop_toTopOf="@+id/mnu_informe"
-            app:srcCompat="@drawable/clasewhite" />
+            app:srcCompat="@drawable/documentoarchivowithe" />
 
         <TextView
             android:id="@+id/mnu_informe"
@@ -79,7 +79,7 @@
             app:layout_constraintEnd_toEndOf="@+id/menu_icon_informe"
             app:layout_constraintStart_toStartOf="@+id/menu_icon_informe"
             app:layout_constraintTop_toBottomOf="@+id/menu_icon_informe"
-            app:srcCompat="@drawable/clasewhite" />
+            app:srcCompat="@drawable/baseline_miscellaneous_services_white" />
 
 
         <TextView
@@ -106,7 +106,7 @@
             app:layout_constraintEnd_toEndOf="@+id/menu_icon_config"
             app:layout_constraintStart_toStartOf="@+id/menu_icon_config"
             app:layout_constraintTop_toBottomOf="@+id/menu_icon_config"
-            app:srcCompat="@drawable/clasewhite" />
+            app:srcCompat="@drawable/baseline_help_outline_white" />
 
         <TextView
             android:id="@+id/mnu_ayuda"
@@ -132,7 +132,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView9"
             app:layout_constraintEnd_toEndOf="@+id/menu_icon_ayuda"
             app:layout_constraintStart_toStartOf="@+id/menu_icon_ayuda"
-            app:srcCompat="@drawable/clasewhite" />
+            app:srcCompat="@drawable/baseline_clear_white" />
 
         <TextView
             android:id="@+id/mnu_cerrar_sesion"
