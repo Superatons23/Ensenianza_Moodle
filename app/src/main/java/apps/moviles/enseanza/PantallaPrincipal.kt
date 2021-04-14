@@ -88,6 +88,17 @@ class PantallaPrincipal : AppCompatActivity() {
             startActivity(Intent(this, PantallaTutoriales::class.java))
         }
 
+        //mesnajes
+        prin_btn_mensajes.setOnClickListener {
+            startActivity(Intent(this, PantallaMensajes::class.java))
+        }
+
+        //perfil
+
+        cardView2.setOnClickListener {
+            startActivity(Intent(this, PantallaPerfil::class.java))
+        }
+
     }
 
     fun cargarClases() {
