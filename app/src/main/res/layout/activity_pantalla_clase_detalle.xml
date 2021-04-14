@@ -7,15 +7,14 @@
     android:background="#2FAC66">
 
     <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="601dp"
-        android:layout_height="198dp"
-        android:background="@drawable/mountain"
+        android:id="@+id/imageView10"
+        android:layout_width="409dp"
+        android:layout_height="181dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/iconoClaseGeografia"
-        app:srcCompat="@drawable/fondogris"
-        tools:srcCompat="@color/boton" />
+        app:srcCompat="@drawable/mountain" />
 
     <ImageView
         android:id="@+id/iconoClaseGeografia"
@@ -66,7 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/tareaUrgenteBttn"
@@ -138,7 +137,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tareaBttn" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/bttnClasesGrabadas"
         android:layout_width="100dp"
         android:layout_height="81dp"
         android:layout_marginStart="60dp"
@@ -174,10 +173,10 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/bttnClasesGrabadas" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/bttnAsesoria"
         android:layout_width="100dp"
         android:layout_height="81dp"
         android:layout_marginTop="44dp"
@@ -198,6 +197,6 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+        app:layout_constraintTop_toBottomOf="@+id/bttnAsesoria" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

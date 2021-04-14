@@ -45,4 +45,8 @@
     <string name="Masvideos">Más Videos</string>
     <string name="comentarios">Comentarios</string>
     <string name="mastarde">Mas tarde</string>
+    <string name="Asignacion6">Asignación 6</string>
+    <string name="titulo_asignacion">¿Cuál es mi nacionalidad?</string>
+    <string name="descripcion_asignacion">En esta actividad se realizará un resumen explicando...</string>
+
 </resources>

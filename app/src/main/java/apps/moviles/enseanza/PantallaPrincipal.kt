@@ -37,8 +37,9 @@ class PantallaPrincipal : AppCompatActivity() {
         //asignar layout al recycler view
         recycler.layoutManager = layoutManager;
         recycler.adapter = RecyclerAdapter(clases,View.OnClickListener {
-            Toast.makeText(applicationContext,"has seleccionado la clase: "+clases.get(recycler.getChildAdapterPosition(it)).nombreClase,Toast.LENGTH_SHORT).show();
-
+           Toast.makeText(applicationContext,"has seleccionado la claseeeee: "+clases.get(recycler.getChildAdapterPosition(it)).nombreClase,Toast.LENGTH_SHORT).show();
+            var intent= Intent(this, PantallaClaseDetalle::class.java)
+            startActivity(intent)
         });
         recycler.itemAnimator = DefaultItemAnimator();
 
@@ -59,7 +60,7 @@ class PantallaPrincipal : AppCompatActivity() {
 
         //llevar a pantalla donde estan las clases grabadas
         prin_btn_claseGrabadas.setOnClickListener() {
-            startActivity(Intent(this, PantallaClases::class.java))
+            startActivity(Intent(this, PantallaClasesGrabadas::class.java))
         }
 //llevar al menu
         prin_btnMenu.setOnClickListener() {
