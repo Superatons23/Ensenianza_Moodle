@@ -52,7 +52,8 @@ class PantallaPrincipal : AppCompatActivity() {
         recyclerTutorial.layoutManager = layoutManagerTurial;
         recyclerTutorial.adapter = RecyclerAdapterTutoriales(tutoriales,View.OnClickListener {
             Toast.makeText(applicationContext,"has seleccionado el tutorial de: "+tutoriales.get(recyclerTutorial.getChildAdapterPosition(it)).nombreClase,Toast.LENGTH_SHORT).show();
-
+            var intent= Intent(this, PantallaVideo::class.java)
+            startActivity(intent)
         });
         recyclerTutorial.itemAnimator = DefaultItemAnimator();
 
