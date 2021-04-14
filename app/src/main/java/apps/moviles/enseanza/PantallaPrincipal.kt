@@ -4,6 +4,7 @@ package apps.moviles.enseanza
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -61,10 +62,7 @@ class PantallaPrincipal : AppCompatActivity() {
         prin_btn_claseGrabadas.setOnClickListener() {
             startActivity(Intent(this, PantallaClases::class.java))
         }
-//llevar al menu
-        prin_btnMenu.setOnClickListener() {
-            startActivity(Intent(this, PantallaClases::class.java))
-        }
+
 
         //levarte ala pantlla donde se encuentran las tareas
         prin_btn_tareas.setOnClickListener() {
@@ -105,6 +103,8 @@ class PantallaPrincipal : AppCompatActivity() {
         tutoriales.add(Tutorial("Matematicas", "Integrales", R.drawable.thumbnail5))
         tutoriales.add(Tutorial("Geografia", "Nacionalidades", R.drawable.thumbnail4))
     }
+
+
 
 
 }
