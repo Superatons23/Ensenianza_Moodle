@@ -1,15 +1,18 @@
 package apps.moviles.enseanza
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import kotlinx.android.synthetic.main.activity_pantalla_clase_grabada.view.*
 import kotlinx.android.synthetic.main.activity_pantalla_tutorial.view.*
 import kotlinx.android.synthetic.main.activity_pantalla_mensaje.view.*
 import kotlinx.android.synthetic.main.activity_pantalla_mensajes.*
+import kotlinx.android.synthetic.main.activity_pantalla_tutorial.view.thumbnail
 
 class PantallaTutoriales : AppCompatActivity() {
     var adapter: tutorialesAdapter? = null
@@ -48,7 +51,10 @@ class tutorialesAdapter: BaseAdapter {
         vista.tv_nombreClase.setText(tutorial.nombreClase)
         vista.thumbnail.setImageResource(tutorial.thumbnail)
         //vista.setBackgroundResource(R.drawable.rounded_edit_text)
-
+        vista.thumbnail.setOnClickListener(){
+            var intent= Intent(contexto, PantallaVideo::class.java)
+            contexto!!.startActivity(intent)
+        }
         return vista
     }
 

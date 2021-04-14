@@ -52,7 +52,8 @@ class PantallaPrincipal : AppCompatActivity() {
         recyclerTutorial.layoutManager = layoutManagerTurial;
         recyclerTutorial.adapter = RecyclerAdapterTutoriales(tutoriales,View.OnClickListener {
             Toast.makeText(applicationContext,"has seleccionado el tutorial de: "+tutoriales.get(recyclerTutorial.getChildAdapterPosition(it)).nombreClase,Toast.LENGTH_SHORT).show();
-
+            var intent= Intent(this, PantallaVideo::class.java)
+            startActivity(intent)
         });
         recyclerTutorial.itemAnimator = DefaultItemAnimator();
 
@@ -60,7 +61,7 @@ class PantallaPrincipal : AppCompatActivity() {
 
         //llevar a pantalla donde estan las clases grabadas
         prin_btn_claseGrabadas.setOnClickListener() {
-            startActivity(Intent(this, PantallaClases::class.java))
+            startActivity(Intent(this, PantallaClasesGrabadas::class.java))
         }
 
 
