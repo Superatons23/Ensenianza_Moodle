@@ -36,7 +36,12 @@
     <string name="videos_asesoria">Videos de asesoría</string>
 
     <string name="Geografia">Geografía</string>
+    <string name="Historia">Historia</string>
+
+    <string name="Español">Español</string>
+
     <string name="MtraGeografia">Mtra. Ana Marquez</string>
+    <string name="enviar">Enviar</string>
 
     <string name="clasesGrabadas">Clases Grabadas</string>
     <string name="recordar">Recordar Usuario</string>
@@ -49,6 +54,8 @@
     <string name="titulo_asignacion">¿Cuál es mi nacionalidad?</string>
     <string name="descripcion_asignacion">En esta actividad se realizará un resumen explicando...</string>
     <string name="menu">Menú</string>
+    <string name="Tareas">TAREAS</string>
 
+    <string name="pendientes_tareas">PENDIENTES</string>
 
 </resources>

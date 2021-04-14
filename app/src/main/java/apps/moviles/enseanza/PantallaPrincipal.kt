@@ -72,7 +72,8 @@ class PantallaPrincipal : AppCompatActivity() {
 
         //levarte ala pantlla donde se encuentran las tareas
         prin_btn_tareas.setOnClickListener() {
-            startActivity(Intent(this, PantallaClases::class.java))
+            var intent= Intent(this, PantallaTarea::class.java)
+            startActivity(intent)
         }
 
 //levarte donde estan los tutos
