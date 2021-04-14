@@ -95,7 +95,7 @@ class PantallaPrincipal : AppCompatActivity() {
 
         //perfil
 
-        cardView2.setOnClickListener {
+        prin_btn_perfil.setOnClickListener {
             startActivity(Intent(this, PantallaPerfil::class.java))
         }
 
