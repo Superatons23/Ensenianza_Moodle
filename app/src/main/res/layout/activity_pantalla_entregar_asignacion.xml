@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="428dp"
+        android:layout_width="0dp"
         android:layout_height="199dp"
         android:background="@drawable/mountain"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,7 +18,7 @@
 
     <ImageView
         android:id="@+id/imageView15"
-        android:layout_width="418dp"
+        android:layout_width="0dp"
         android:layout_height="200dp"
         android:background="#C10C0C"
         android:backgroundTint="#51009688"
@@ -96,17 +96,84 @@
 
     <TextView
         android:id="@+id/textView26"
-        android:layout_width="367dp"
+        android:layout_width="wrap_content"
         android:layout_height="52dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:fontFamily="@font/poppins_extralight"
         android:text="@string/descripcion_asignacion"
-        android:textAlignment="viewStart"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="149dp"
+        android:layout_height="138dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="44dp"
+        android:background="@color/boton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26"
+        app:srcCompat="@drawable/border_shadow" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="96dp"
+        android:layout_height="88dp"
+        android:background="@color/boton"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/imageButton"
+        app:srcCompat="@drawable/documentoarchivowithe" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="149dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="28dp"
+        android:background="@color/boton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26"
+        app:srcCompat="@drawable/border_shadow" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="96dp"
+        android:layout_height="88dp"
+        android:background="@color/boton"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton4"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton4"
+        app:layout_constraintStart_toStartOf="@+id/imageButton4"
+        app:layout_constraintTop_toTopOf="@+id/imageButton4"
+        app:srcCompat="@drawable/imagen" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="131dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#bae4cd"
+        android:fontFamily="@font/gotham_bold"
+        android:text="@string/enviar"
+        android:textColor="#FFFFFF"
+        app:iconTint="#BAE4CD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.851"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
+        app:layout_constraintVertical_bias="0.006"
+        app:strokeColor="#BAE4CD"
+        tools:text="@string/enviar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

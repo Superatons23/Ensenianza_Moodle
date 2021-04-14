@@ -10,8 +10,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Enseñanza">
-        <activity android:name=".PantallaEntregarAsignacion"></activity>
+        android:theme="@style/Theme.Enseñanza"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true">
+        <activity android:name=".PantallaTarea"></activity>
+        <activity android:name=".PantallaEntregarAsignacion" />
         <activity android:name=".PantallaClaseDetalle" />
         <activity android:name=".PantallaVideo" />
         <activity android:name=".PantallaRecordarUsuario" />
@@ -36,7 +39,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

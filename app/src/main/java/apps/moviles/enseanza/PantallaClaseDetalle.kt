@@ -21,5 +21,9 @@ class PantallaClaseDetalle : AppCompatActivity() {
             startActivity(Intent(this, PantallaTutoriales::class.java))
 
         }
+        btnChat.setOnClickListener(){
+            startActivity(Intent(this, PantallaMensajes::class.java))
+
+        }
     }
 }
