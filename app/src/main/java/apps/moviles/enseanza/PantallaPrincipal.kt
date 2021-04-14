@@ -59,7 +59,7 @@ class PantallaPrincipal : AppCompatActivity() {
 
         //llevar a pantalla donde estan las clases grabadas
         prin_btn_claseGrabadas.setOnClickListener() {
-            startActivity(Intent(this, PantallaClases::class.java))
+            startActivity(Intent(this, PantallaClasesGrabadas::class.java))
         }
 //llevar al menu
         prin_btnMenu.setOnClickListener() {
