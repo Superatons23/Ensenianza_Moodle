@@ -36,9 +36,13 @@ class PantallaPrincipal : AppCompatActivity() {
 
         //asignar layout al recycler view
         recycler.layoutManager = layoutManager;
-        recycler.adapter = RecyclerAdapter(clases,View.OnClickListener {
-           Toast.makeText(applicationContext,"has seleccionado la claseeeee: "+clases.get(recycler.getChildAdapterPosition(it)).nombreClase,Toast.LENGTH_SHORT).show();
-            var intent= Intent(this, PantallaClaseDetalle::class.java)
+        recycler.adapter = RecyclerAdapter(clases, View.OnClickListener {
+            Toast.makeText(
+                applicationContext,
+                "has seleccionado la claseeeee: " + clases.get(recycler.getChildAdapterPosition(it)).nombreClase,
+                Toast.LENGTH_SHORT
+            ).show();
+            var intent = Intent(this, PantallaClaseDetalle::class.java)
             startActivity(intent)
         });
         recycler.itemAnimator = DefaultItemAnimator();
@@ -50,9 +54,15 @@ class PantallaPrincipal : AppCompatActivity() {
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
         recyclerTutorial.layoutManager = layoutManagerTurial;
-        recyclerTutorial.adapter = RecyclerAdapterTutoriales(tutoriales,View.OnClickListener {
-            Toast.makeText(applicationContext,"has seleccionado el tutorial de: "+tutoriales.get(recyclerTutorial.getChildAdapterPosition(it)).nombreClase,Toast.LENGTH_SHORT).show();
-            var intent= Intent(this, PantallaVideo::class.java)
+        recyclerTutorial.adapter = RecyclerAdapterTutoriales(tutoriales, View.OnClickListener {
+            Toast.makeText(
+                applicationContext,
+                "has seleccionado el tutorial de: " + tutoriales.get(
+                    recyclerTutorial.getChildAdapterPosition(it)
+                ).nombreClase,
+                Toast.LENGTH_SHORT
+            ).show();
+            var intent = Intent(this, PantallaVideo::class.java)
             startActivity(intent)
         });
         recyclerTutorial.itemAnimator = DefaultItemAnimator();
@@ -63,20 +73,15 @@ class PantallaPrincipal : AppCompatActivity() {
         prin_btn_claseGrabadas.setOnClickListener() {
             startActivity(Intent(this, PantallaClasesGrabadas::class.java))
         }
-<<<<<<< HEAD
-
-=======
 //llevar al menu
         prin_btnMenu.setOnClickListener() {
             startActivity(Intent(this, PantallaMenu::class.java))
         }
->>>>>>> origin/develop
-
 
 
         //levarte ala pantlla donde se encuentran las tareas
         prin_btn_tareas.setOnClickListener() {
-            var intent= Intent(this, PantallaTarea::class.java)
+            var intent = Intent(this, PantallaTarea::class.java)
             startActivity(intent)
         }
 
@@ -85,25 +90,12 @@ class PantallaPrincipal : AppCompatActivity() {
             startActivity(Intent(this, PantallaTutoriales::class.java))
         }
 
-          //mensajes
-        prin_btn_mensajes.setOnClickListener {
-            startActivity(Intent(this, PantallaMensajes::class.java))
-        }
-
-        cardView2.setOnClickListener {
-            startActivity(Intent(this, PantallaPerfil::class.java))
-        }
 
         //levarte donde estan las tareas
         print_recycler_view_clases.setOnClickListener() {
             startActivity(Intent(this, PantallaTutoriales::class.java))
         }
 
-<<<<<<< HEAD
-        //menu
-        prin_btnMenu.setOnClickListener {
-            startActivity(Intent(this, PantallaMenu::class.java))
-=======
         //mesnajes
         prin_btn_mensajes.setOnClickListener {
             startActivity(Intent(this, PantallaMensajes::class.java))
@@ -113,7 +105,6 @@ class PantallaPrincipal : AppCompatActivity() {
 
         prin_btn_perfil.setOnClickListener {
             startActivity(Intent(this, PantallaPerfil::class.java))
->>>>>>> origin/develop
         }
 
     }
@@ -139,8 +130,4 @@ class PantallaPrincipal : AppCompatActivity() {
     }
 
 
-
-
 }
-
-
