@@ -21,4 +21,6 @@
     <color name="azulClaro">#A6D7E4</color>
     <color name="grisBackground3">#DFDFDF</color>
     <color name="blancoopacidad30">#4DFFFFFF</color>
+    <color name="grisTarea1">#c8c8c8</color>
+    <color name="grisTarea2">#dfdfdf</color>
 </resources>

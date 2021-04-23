@@ -7,7 +7,7 @@
     tools:context=".PantallaClaseGrabada">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/prin_btn_perfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -40,10 +40,10 @@
         android:text="Jueves 18 de Abril 2021"
         android:textColor="@color/grisTexto"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="@+id/prin_btn_perfil"
         app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+        app:layout_constraintStart_toStartOf="@+id/prin_btn_perfil"
+        app:layout_constraintTop_toBottomOf="@+id/prin_btn_perfil" />
 
     <TextView
         android:id="@+id/tv_nombreTutoria"

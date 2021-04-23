@@ -58,7 +58,7 @@
 
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView2"
+                    android:id="@+id/prin_btn_perfil"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -209,6 +209,8 @@
                         android:textSize="20sp" />
 
 
+
+
                 </LinearLayout>
 
                 <!-- CLASES GRABADAS-->
@@ -326,11 +328,10 @@
 
 
     </LinearLayout>
-
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
 

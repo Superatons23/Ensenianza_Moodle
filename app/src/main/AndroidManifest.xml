@@ -10,7 +10,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Enseñanza">
+
+        android:theme="@style/Theme.Enseñanza"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true">
+        <activity android:name=".PantallaTarea"></activity>
+        <activity android:name=".PantallaEntregarAsignacion" />
+        <activity android:name=".PantallaClaseDetalle" />
+
         <activity android:name=".PantallaVideo" />
         <activity android:name=".PantallaRecordarUsuario" />
         <activity android:name=".PantallaTutoriales" />
@@ -26,7 +33,9 @@
         <activity android:name=".PantallaConectar" />
         <activity android:name=".PantallaLogin_2" />
         <activity android:name=".PantallaRegistrate" />
+
         <activity android:name=".PantallaMenu"/>
+
         <activity android:name=".PantallaLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
