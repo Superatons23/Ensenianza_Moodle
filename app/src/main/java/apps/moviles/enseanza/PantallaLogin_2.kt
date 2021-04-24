@@ -9,7 +9,9 @@ import android.os.StrictMode
 import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
+import androidx.annotation.WorkerThread
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import apps.moviles.enseanza.repository.Repository
@@ -34,6 +36,7 @@ class PantallaLogin_2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_login_2)
 
+        var fachadaNegocio = Factory.crearFachadaNegocio();
 
 
         btnRegistro.setOnClickListener() {
@@ -42,24 +45,53 @@ class PantallaLogin_2 : AppCompatActivity() {
 
 
         btnIngresar.setOnClickListener() {
-          authUser();
+            // authUser();
+            authUserThread(fachadaNegocio);
 
         }
 
 
     }
 
+    fun authUserThread(fachadaNegocio: FachadaNegocio) {
+        var hilo = Thread(Runnable {
+            var contrasenia: String = et_contrasenia.text.toString();
+            var user: String? = et_correo.text.toString();
+
+            var isUser = fachadaNegocio.iniciarSesion(this, user, contrasenia);
+
+            if (isUser == true) {
+                println("abriendo pantalla principal")
+
+                startActivity(
+                    Intent(
+                        this,
+                        PantallaPrincipal::class.java
+                    )
+                )
+            } else {
+
+                @WorkerThread
+                fun workerThread() {
+                    ContextCompat.getMainExecutor(this).execute {
+                        Toast.makeText(
+                            this,
+                            "Ingresar Credenciales validas",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
 
 
+                }
+                workerThread();
+            };
 
+        })
 
+        hilo.start();
+    }
 
-
-
-
-
-
-    fun authUser(){
+    fun authUser() {
         var contrasenia: String = et_contrasenia.text.toString();
         var user: String? = et_correo.text.toString();
 

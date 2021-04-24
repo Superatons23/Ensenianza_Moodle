@@ -14,9 +14,12 @@ class CtrlTutor {
     fun iniciarSesion(context: Context?,usuario:String?,password:String?): Boolean? {
 
         var token= accesoDatos.iniciarSesion(context,usuario,password);
-        println("tooken pero en ctrlTutor")
-        println(token)
-        return token?.isNotEmpty();
+        println("token en ctrl")
+        println(token);
+        println("to")
+        println(token != "null");
+        return token != "null"
+
     }
 
     fun cerrarSesion(): Boolean {

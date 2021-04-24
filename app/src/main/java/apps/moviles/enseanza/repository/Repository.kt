@@ -7,6 +7,7 @@ import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.http.Query
 
 
 class Repository {
@@ -14,7 +15,7 @@ class Repository {
         return RetrofitInstance.api.getPost()
     }
 
-    fun authUser(): Call<AuthUser> {
-        return RetrofitInstance.apiAuth.authUser();
+    fun authUser(usuario:String?,password:String?): Call<AuthUser> {
+        return RetrofitInstance.apiAuth.authUser(usuario,password);
     }
 }
