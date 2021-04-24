@@ -1,5 +1,7 @@
 package apps.moviles.enseanza
 
+import Negocio.FachadaNegocio
+import Negocio.Factory
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -12,40 +14,29 @@ import androidx.lifecycle.ViewModelProvider
 import apps.moviles.enseanza.repository.Repository
 import kotlinx.android.synthetic.main.activity_pantalla_login.btnRegistro
 import kotlinx.android.synthetic.main.activity_pantalla_login_2.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import okhttp3.internal.wait
 import java.net.URL
 
 
 class PantallaLogin_2 : AppCompatActivity() {
 
     private lateinit var viewModel:MainViewModel
+    private lateinit var negocio:FachadaNegocio;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_login_2)
+
+       negocio=Factory.crearFachadaNegocio();
 
         btnRegistro.setOnClickListener(){
             startActivity(Intent(this, PantallaRegistrate::class.java))
         }
 
-        val repository=Repository()
-        var viewModelFactory=MainViewModelFactory(repository)
-        viewModel=ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
-        viewModel.getPost()
-        viewModel.myResponse.observe(this, Observer { response  ->
-            if(response.isSuccessful){
-                Log.d("Response",response.body()?.title!!)
-            }else{
-                Log.d("Response", response.errorBody().toString())
-                Log.d("Response", response.code().toString())
-            }
-        })
 
-        btnIngresar.setOnClickListener(){
-            //startActivity(Intent(this, PantallaRecordarUsuario::class.java))
-            var user=et_correo
-            var pass=et_contrasenia
+        negocio.iniciarSesion();
 
-
-
-        }
     }
 }
