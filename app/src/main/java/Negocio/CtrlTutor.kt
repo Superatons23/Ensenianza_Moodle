@@ -2,6 +2,7 @@ package Negocio
 
 import AccesoDatos.FabricaDatos
 import AccesoDatos.FachadaDatos
+import android.content.Context
 
 class CtrlTutor {
 
@@ -10,10 +11,12 @@ class CtrlTutor {
         accesoDatos=FabricaDatos.crearFachadaDatos();
     }
 
-    fun iniciarSesion(): Boolean {
+    fun iniciarSesion(context: Context?,usuario:String?,password:String?): Boolean? {
 
-        var token= accesoDatos.iniciarSesion("javier","chuy");
-        return true
+        var token= accesoDatos.iniciarSesion(context,usuario,password);
+        println("tooken pero en ctrlTutor")
+        println(token)
+        return token?.isNotEmpty();
     }
 
     fun cerrarSesion(): Boolean {

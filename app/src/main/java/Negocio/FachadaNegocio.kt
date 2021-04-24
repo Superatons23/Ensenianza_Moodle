@@ -1,21 +1,20 @@
 package Negocio
 
 import AccesoDatos.AccesoDatosTutor
+import android.content.Context
 
-class FachadaNegocio : iNegocio {
-    override fun iniciarSesion(
-        usuario: String?,
-        contrasenia: String?
-    ): Boolean {
-        return false
+class FachadaNegocio:iNegocio {
+    override fun iniciarSesion(context: Context?, usuario: String?, contrasenia: String?): Boolean? {
+        var negocio:CtrlTutor  = CtrlTutor();
+        return negocio.iniciarSesion(context,usuario,contrasenia);
     }
 
-    override fun iniciarSesion(): Boolean {
-        var negocio:CtrlTutor  = CtrlTutor();
-        return negocio.iniciarSesion();
+    override fun cerrarSesion(): Boolean {
+        TODO("Not yet implemented")
     }
 
     override fun subirTarea(): Boolean {
-        return false
+        TODO("Not yet implemented")
     }
+
 }
