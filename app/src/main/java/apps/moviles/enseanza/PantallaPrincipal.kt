@@ -2,6 +2,9 @@ package apps.moviles.enseanza
 
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -9,8 +12,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.toolbox.Volley
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_pantalla_principal.*
+import java.net.URL
+
 
 class PantallaPrincipal : AppCompatActivity() {
 
@@ -22,6 +27,12 @@ class PantallaPrincipal : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_pantalla_principal);
         setContentView(R.layout.activity_pantalla_principal);
+        var bundle=intent.extras
+        if(bundle!=null) {
+            prin_nombre.setText(bundle.getString("nombre") + " " + bundle.getString("apellido"))
+            prin_grado_grupo.setText(bundle.getString("email"))
+            Picasso.get().load(bundle.getString("foto")).into(prin_imagen_perfil);
+            }
         var recycler: RecyclerView? = null
         var recyclerTutorial: RecyclerView? = null
         // asignar recycler

@@ -1,6 +1,7 @@
 package Negocio
 
 import AccesoDatos.AccesoDatosTutor
+import Dominio.Alumno
 import android.content.Context
 
 class FachadaNegocio:iNegocio {
@@ -15,6 +16,11 @@ class FachadaNegocio:iNegocio {
 
     override fun subirTarea(): Boolean {
         TODO("Not yet implemented")
+    }
+
+    override fun obtenerAlumno(context: Context?, usuario: String?): Alumno? {
+        var negocio:CtrlTutor  = CtrlTutor();
+        return negocio.obtenerAlumno(context,usuario);
     }
 
 }

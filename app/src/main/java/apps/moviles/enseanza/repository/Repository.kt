@@ -3,6 +3,7 @@ package apps.moviles.enseanza.repository
 import apps.moviles.enseanza.api.RetrofitInstance
 import apps.moviles.enseanza.model.AuthUser
 import apps.moviles.enseanza.model.Post
+import apps.moviles.enseanza.model.getAlumno
 import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,5 +18,8 @@ class Repository {
 
     fun authUser(usuario:String?,password:String?): Call<AuthUser> {
         return RetrofitInstance.apiAuth.authUser(usuario,password);
+    }
+    fun getAlumno(usuario:String?): Call<List<getAlumno>> {
+        return RetrofitInstance.getAlumno.getAlumno(usaurio = usuario);
     }
 }

@@ -36,7 +36,7 @@ class PantallaLogin_2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_login_2)
 
-        var fachadaNegocio = Factory.crearFachadaNegocio();
+        val fachadaNegocio = Factory.crearFachadaNegocio();
 
 
         btnRegistro.setOnClickListener() {
@@ -62,13 +62,17 @@ class PantallaLogin_2 : AppCompatActivity() {
 
             if (isUser == true) {
                 println("abriendo pantalla principal")
+                var alumno=fachadaNegocio.obtenerAlumno(this,user)
+                val intent = Intent(this,PantallaPrincipal::class.java)
+                if (alumno != null) {
+                    intent.putExtra("nombre", alumno.nombre)
+                    intent.putExtra("apellido", alumno.apellido)
+                    intent.putExtra("email",alumno.email)
+                    intent.putExtra("foto",alumno.foto)
+                    this.startActivity(intent)
+                }
 
-                startActivity(
-                    Intent(
-                        this,
-                        PantallaPrincipal::class.java
-                    )
-                )
+
             } else {
 
                 @WorkerThread

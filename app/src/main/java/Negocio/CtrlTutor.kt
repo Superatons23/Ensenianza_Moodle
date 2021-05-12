@@ -2,6 +2,7 @@ package Negocio
 
 import AccesoDatos.FabricaDatos
 import AccesoDatos.FachadaDatos
+import Dominio.Alumno
 import android.content.Context
 
 class CtrlTutor {
@@ -28,5 +29,10 @@ class CtrlTutor {
 
     fun subirTarea(): Boolean {
         return true
+    }
+
+    fun obtenerAlumno(context: Context?, usuario: String?): Alumno? {
+        var a: Alumno? =accesoDatos.obtenerAlumno(context,usuario);
+        return a;
     }
 }

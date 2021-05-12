@@ -1,5 +1,6 @@
 package AccesoDatos
 
+import Dominio.Alumno
 import android.content.Context
 
 class FachadaDatos : iAccesoDatos {
@@ -18,5 +19,13 @@ class FachadaDatos : iAccesoDatos {
 
     override fun subirTarea(): Boolean {
         return false
+    }
+
+    override fun obtenerAlumno(
+        context:Context?,
+        usuario: String?
+    ): Alumno? {
+        var acceso:AccesoDatosTutor= AccesoDatosTutor();
+        return acceso.obtenerAlumno(context,usuario);
     }
 }

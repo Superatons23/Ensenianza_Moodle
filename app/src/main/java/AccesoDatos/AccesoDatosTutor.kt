@@ -1,5 +1,6 @@
 package AccesoDatos
 
+import Dominio.Alumno
 import android.content.Context
 import android.widget.Toast
 import apps.moviles.enseanza.repository.Repository
@@ -31,6 +32,24 @@ class AccesoDatosTutor {
 
 
         return token;
+    }
+
+    fun obtenerAlumno(context: Context?, usuario: String?): Alumno? {
+        var repository = Repository();
+        var alumno = repository.getAlumno(usuario)
+        var alumnoData = alumno.execute().body()?.get(0);
+        var a=Alumno(alumnoData?.firstname, alumnoData?.lastname, alumnoData?.email, alumnoData?.profileimageurl)
+        println("nombre")
+        println(a.nombre)
+        println("apellido")
+        println(a.apellido)
+        println("email")
+        println(a.email)
+        println("foto")
+        println(a.foto)
+
+
+        return a;
     }
 
 
