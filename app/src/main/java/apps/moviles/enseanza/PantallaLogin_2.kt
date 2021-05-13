@@ -15,15 +15,26 @@ import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_pantalla_login.btnRegistro
 import kotlinx.android.synthetic.main.activity_pantalla_login_2.*
 import java.util.*
+import kotlinx.android.synthetic.main.activity_pantalla_login_2.et_contrasenia
+import kotlinx.android.synthetic.main.activity_pantalla_login_2.et_correo
+import kotlinx.android.synthetic.main.activity_pantalla_registrate.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import okhttp3.internal.wait
+import java.net.URL
 
 
 class PantallaLogin_2 : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var negocio: FachadaNegocio;
+    private var isRunning:Boolean=false;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_login_2)
+
 
         val fachadaNegocio = Factory.crearFachadaNegocio();
 
@@ -35,14 +46,26 @@ class PantallaLogin_2 : AppCompatActivity() {
 
         btnIngresar.setOnClickListener() {
             // authUser();
-            authUserThread(fachadaNegocio);
+            if(!this.isRunning){
+                authUserThread(fachadaNegocio);
+                this.isRunning=true;
+            }
 
+
+
+
+        }
+
+        btnRegistro.setOnClickListener(){
+            startActivity(Intent(this, PantallaRecordarUsuario::class.java))
         }
 
 
     }
 
+
     fun authUserThread(fachadaNegocio: FachadaNegocio) {
+
         var hilo = Thread(Runnable {
             var contrasenia: String = et_contrasenia.text.toString();
             var user: String? = et_correo.text.toString();
@@ -58,6 +81,8 @@ class PantallaLogin_2 : AppCompatActivity() {
                     intent.putExtra("alumno",alumno)
                     intent.putParcelableArrayListExtra("cursos",cursos)
                     this.startActivity(intent)
+                    this.isRunning=false;
+
                 }
 
 
@@ -80,7 +105,11 @@ class PantallaLogin_2 : AppCompatActivity() {
 
         })
 
-        hilo.start();
+
+            hilo.start();
+
+
+
     }
 
     fun authUser() {

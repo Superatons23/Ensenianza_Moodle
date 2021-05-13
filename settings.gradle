@@ -1,3 +1,4 @@
+include ':DominioAppMovil'
 include ':app'
 rootProject.name = "Enseñanza"
 include ':Dominio1'
