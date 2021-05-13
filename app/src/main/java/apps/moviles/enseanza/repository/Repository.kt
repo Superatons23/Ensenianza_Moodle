@@ -1,9 +1,7 @@
 package apps.moviles.enseanza.repository
 
 import apps.moviles.enseanza.api.RetrofitInstance
-import apps.moviles.enseanza.model.AuthUser
-import apps.moviles.enseanza.model.Post
-import apps.moviles.enseanza.model.getAlumno
+import apps.moviles.enseanza.model.*
 import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.Callback
@@ -21,5 +19,11 @@ class Repository {
     }
     fun getAlumno(usuario:String?): Call<List<getAlumno>> {
         return RetrofitInstance.getAlumno.getAlumno(usaurio = usuario);
+    }
+    fun getCursos(userid:Int?): Call<List<getCursos>> {
+        return RetrofitInstance.getAlumno.getCursos(userid = userid);
+    }
+    fun getParcial(courseid:Int?): Call<List<Parcial>> {
+        return RetrofitInstance.getAlumno.getParciales(courseid = courseid);
     }
 }

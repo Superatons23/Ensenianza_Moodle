@@ -4,6 +4,7 @@ import AccesoDatos.FabricaDatos
 import AccesoDatos.FachadaDatos
 import Dominio.Alumno
 import android.content.Context
+import Dominio.Clase
 
 class CtrlTutor {
 
@@ -34,5 +35,9 @@ class CtrlTutor {
     fun obtenerAlumno(context: Context?, usuario: String?): Alumno? {
         var a: Alumno? =accesoDatos.obtenerAlumno(context,usuario);
         return a;
+    }
+    fun obtenerCursos(context: Context?, userid: Int?): List<Clase>? {
+        var c: List<Clase>? = accesoDatos.obtenerCursos(context,userid);
+        return c;
     }
 }

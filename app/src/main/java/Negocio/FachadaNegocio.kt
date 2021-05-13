@@ -1,8 +1,8 @@
 package Negocio
 
-import AccesoDatos.AccesoDatosTutor
 import Dominio.Alumno
 import android.content.Context
+import Dominio.Clase
 
 class FachadaNegocio:iNegocio {
     override fun iniciarSesion(context: Context?, usuario: String?, contrasenia: String?): Boolean? {
@@ -21,6 +21,11 @@ class FachadaNegocio:iNegocio {
     override fun obtenerAlumno(context: Context?, usuario: String?): Alumno? {
         var negocio:CtrlTutor  = CtrlTutor();
         return negocio.obtenerAlumno(context,usuario);
+    }
+
+    fun obtenerCursos(context: Context?, userid: Int?): List<Clase>? {
+        var negocio:CtrlTutor  = CtrlTutor();
+        return negocio.obtenerCursos(context,userid);
     }
 
 }

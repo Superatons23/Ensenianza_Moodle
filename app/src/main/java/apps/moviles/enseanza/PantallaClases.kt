@@ -1,6 +1,6 @@
 package apps.moviles.enseanza
 
-import android.app.Activity
+import Dominio.Clase
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,8 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.activity_pantalla_clase.view.*
-import kotlinx.android.synthetic.main.activity_pantalla_mensaje.view.*
 import kotlinx.android.synthetic.main.activity_pantalla_mensajes.*
+import java.util.*
 
 class PantallaClases : AppCompatActivity() {
     var adapter: ClasesAdapter? = null
@@ -19,14 +19,15 @@ class PantallaClases : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_clases);
-        cargarClases();
+        //cargarClases();
 
 
-        adapter=ClasesAdapter(this, clases);
-        gridview.adapter=adapter;
+        adapter = ClasesAdapter(this, clases);
+        gridview.adapter = adapter;
     }
+}
 
-
+/*
     fun cargarClases(){
         clases.add(Clase("Geografia", "Mtra. Ana Marquez", R.drawable.geografiawhite))
         clases.add(Clase("Geografia", "Mtra. Ana Marquez", R.drawable.geografiawhite))
@@ -38,7 +39,7 @@ class PantallaClases : AppCompatActivity() {
         clases.add(Clase("Geografia", "Mtra. Ana Marquez", R.drawable.geografiawhite))
         clases.add(Clase("Geografia", "Mtra. Ana Marquez", R.drawable.geografiawhite))
     }
-}
+}*/
 
 class ClasesAdapter: BaseAdapter {
     var clases= ArrayList<Clase>()

@@ -35,4 +35,8 @@ object RetrofitInstance {
     val getAlumno:SimpleApi by lazy{
         retrofitAuth.create(SimpleApi::class.java)
     }
+    val getParcial:SimpleApi by lazy{
+        retrofitAuth.create(SimpleApi::class.java)
+    }
+
 }

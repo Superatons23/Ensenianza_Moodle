@@ -27,7 +27,7 @@
         app:srcCompat="@drawable/geografiawhite" />
 
     <TextView
-        android:id="@+id/textMateriaGeografia"
+        android:id="@+id/et_nombreClase"
         android:layout_width="175dp"
         android:layout_height="32dp"
         android:fontFamily="@font/roboto_bold"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/iconoClaseGeografia" />
 
     <TextView
-        android:id="@+id/textMtraGeografia"
+        android:id="@+id/et_descripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_extralight"
@@ -50,7 +50,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMateriaGeografia" />
+        app:layout_constraintTop_toBottomOf="@+id/et_nombreClase" />
 
     <TextView
         android:id="@+id/textTutorAlumno"
@@ -83,7 +83,6 @@
         android:textStyle="italic"
         app:chipBackgroundColor="#FF1313"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPendientes" />
 

@@ -2,6 +2,7 @@ package AccesoDatos
 
 import Dominio.Alumno
 import android.content.Context
+import Dominio.Clase
 
 class FachadaDatos : iAccesoDatos {
     override fun iniciarSesion(
@@ -27,5 +28,13 @@ class FachadaDatos : iAccesoDatos {
     ): Alumno? {
         var acceso:AccesoDatosTutor= AccesoDatosTutor();
         return acceso.obtenerAlumno(context,usuario);
+    }
+
+    override fun obtenerCursos(
+        context:Context?,
+        userid: Int?
+    ): List<Clase>? {
+        var acceso:AccesoDatosTutor= AccesoDatosTutor();
+        return acceso.obtenerCursos(context,userid);
     }
 }
