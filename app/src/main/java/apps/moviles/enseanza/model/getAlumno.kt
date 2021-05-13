@@ -1,7 +1,7 @@
 package apps.moviles.enseanza.model
 
 data class getAlumno (
-    val id: Long,
+    val id: Int,
     val username: String,
     val firstname: String,
     val lastname: String,

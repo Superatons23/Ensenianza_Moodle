@@ -1,10 +1,9 @@
 package apps.moviles.enseanza
 
 
+import Dominio.Alumno
+import Dominio.Clase
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -14,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_pantalla_principal.*
-import java.net.URL
+import java.util.*
 
 
 class PantallaPrincipal : AppCompatActivity() {
@@ -29,9 +28,13 @@ class PantallaPrincipal : AppCompatActivity() {
         setContentView(R.layout.activity_pantalla_principal);
         var bundle=intent.extras
         if(bundle!=null) {
-            prin_nombre.setText(bundle.getString("nombre") + " " + bundle.getString("apellido"))
-            prin_grado_grupo.setText(bundle.getString("email"))
-            Picasso.get().load(bundle.getString("foto")).into(prin_imagen_perfil);
+
+            var alumno:Alumno= bundle.get("alumno") as Alumno
+
+            prin_nombre.setText(alumno.nombre + " " + alumno.apellido)
+            prin_grado_grupo.setText(alumno.email)
+            Picasso.get().load(alumno.foto).into(prin_imagen_perfil);
+            clases= bundle.get("cursos") as ArrayList<Clase>
             }
         var recycler: RecyclerView? = null
         var recyclerTutorial: RecyclerView? = null
@@ -40,7 +43,7 @@ class PantallaPrincipal : AppCompatActivity() {
         recyclerTutorial = findViewById(R.id.print_recycler_view_tutorias);
 
         //crear array de datos para las clases
-        cargarClases();
+        //cargarClases();
 
         //horizontal layout
         var layoutManager: LinearLayoutManager =
@@ -51,10 +54,11 @@ class PantallaPrincipal : AppCompatActivity() {
         recycler.adapter = RecyclerAdapter(clases, View.OnClickListener {
             Toast.makeText(
                 applicationContext,
-                "has seleccionado la claseeeee: " + clases.get(recycler.getChildAdapterPosition(it)).nombreClase,
+                "has seleccionado la clase: " + clases.get(recycler.getChildAdapterPosition(it)).id,
                 Toast.LENGTH_SHORT
             ).show();
             var intent = Intent(this, PantallaClaseDetalle::class.java)
+            intent.putExtra("clase",clases.get(recycler.getChildAdapterPosition(it)))
             startActivity(intent)
         });
         recycler.itemAnimator = DefaultItemAnimator();
@@ -93,7 +97,9 @@ class PantallaPrincipal : AppCompatActivity() {
 
         //levarte ala pantlla donde se encuentran las tareas
         prin_btn_tareas.setOnClickListener() {
+
             var intent = Intent(this, PantallaTarea::class.java)
+            intent.putExtra("clases",clases)
             startActivity(intent)
         }
 
@@ -120,7 +126,7 @@ class PantallaPrincipal : AppCompatActivity() {
         }
 
     }
-
+/*
     fun cargarClases() {
         clases.add(Clase("Geografia", "Mtra. Ana Marquez", R.drawable.geografiawhite))
         clases.add(Clase("Ingles", "Mtra. Ana Marquez", R.drawable.ingleswhite))
@@ -133,7 +139,7 @@ class PantallaPrincipal : AppCompatActivity() {
         clases.add(Clase("Español", "Mtra. Ana Marquez", R.drawable.libroespaniolwhite))
         clases.add(Clase("Civica", "Mtra. Ana Marquez", R.drawable.civicawhite))
     }
-
+*/
     fun cargartutoriales() {
         tutoriales.add(Tutorial("Geografia", "Mi estado", R.drawable.thumbnail5))
         tutoriales.add(Tutorial("Español", "Signos de puntuacion", R.drawable.thumbnail6))

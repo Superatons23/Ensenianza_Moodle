@@ -1,26 +1,20 @@
 package apps.moviles.enseanza
 
+import Dominio.Clase
 import Negocio.FachadaNegocio
 import Negocio.Factory
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.os.StrictMode
-import android.util.Log
-import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.WorkerThread
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import apps.moviles.enseanza.repository.Repository
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_pantalla_login.btnRegistro
 import kotlinx.android.synthetic.main.activity_pantalla_login_2.*
+import java.util.*
 import kotlinx.android.synthetic.main.activity_pantalla_login_2.et_contrasenia
 import kotlinx.android.synthetic.main.activity_pantalla_login_2.et_correo
 import kotlinx.android.synthetic.main.activity_pantalla_registrate.*
@@ -81,12 +75,11 @@ class PantallaLogin_2 : AppCompatActivity() {
             if (isUser == true) {
                 println("abriendo pantalla principal")
                 var alumno=fachadaNegocio.obtenerAlumno(this,user)
+                var cursos=fachadaNegocio.obtenerCursos(this,alumno?.id) as ArrayList<Clase>
                 val intent = Intent(this,PantallaPrincipal::class.java)
                 if (alumno != null) {
-                    intent.putExtra("nombre", alumno.nombre)
-                    intent.putExtra("apellido", alumno.apellido)
-                    intent.putExtra("email",alumno.email)
-                    intent.putExtra("foto",alumno.foto)
+                    intent.putExtra("alumno",alumno)
+                    intent.putParcelableArrayListExtra("cursos",cursos)
                     this.startActivity(intent)
                     this.isRunning=false;
 
