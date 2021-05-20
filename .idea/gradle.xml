@@ -12,6 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Dominio1" />
+            <option value="$PROJECT_DIR$/DominioAppMovil" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
