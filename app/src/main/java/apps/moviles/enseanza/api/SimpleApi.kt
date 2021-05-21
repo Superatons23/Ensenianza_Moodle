@@ -38,5 +38,11 @@ interface SimpleApi {
                    @Query("moodlewsrestformat") moodlewsrestformat:String="json",
                    @Query("courseid") courseid:Int?): Call<List<Parcial>>
 
+    @GET("/webservice/rest/server.php")
+    fun  getMaestros(@Query ("wstoken") wstoken:String="df4353e926da3f515f1d35a05f48d6a1",
+                      @Query("wsfunction") wsfunction:String="core_enrol_get_enrolled_users",
+                      @Query("moodlewsrestformat") moodlewsrestformat:String="json",
+                      @Query("courseid") courseid:Int?): Call<List<getMaestros>>
+
 
 }

@@ -18,7 +18,7 @@ import java.util.*
 
 class PantallaPrincipal : AppCompatActivity() {
 
-
+    lateinit var usuario:Alumno
     var clases = ArrayList<Clase>();
     var tutoriales = ArrayList<Tutorial>();
 
@@ -30,7 +30,7 @@ class PantallaPrincipal : AppCompatActivity() {
         if(bundle!=null) {
 
             var alumno:Alumno= bundle.get("alumno") as Alumno
-
+            usuario=alumno
             prin_nombre.setText(alumno.nombre + " " + alumno.apellido)
             prin_grado_grupo.setText(alumno.email)
             Picasso.get().load(alumno.foto).into(prin_imagen_perfil);
@@ -100,6 +100,7 @@ class PantallaPrincipal : AppCompatActivity() {
 
             var intent = Intent(this, PantallaTarea::class.java)
             intent.putExtra("clases",clases)
+            intent.putExtra("alumno",usuario)
             startActivity(intent)
         }
 
@@ -116,7 +117,11 @@ class PantallaPrincipal : AppCompatActivity() {
 
         //mesnajes
         prin_btn_mensajes.setOnClickListener {
-            startActivity(Intent(this, PantallaMensajes::class.java))
+            var intent=Intent(this, PantallaMensajes::class.java)
+            intent.putExtra("alumno",usuario)
+            intent.putExtra("clases", clases)
+            startActivity(intent)
+           // startActivity(Intent(this, PantallaMensajes::class.java))
         }
 
         //perfil

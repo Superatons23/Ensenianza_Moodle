@@ -15,20 +15,20 @@
  */
 package apps.moviles.enseanza.model
 
-class FriendlyMessage {
-    var text: String? = null
-    var name: String? = null
-    var photoUrl: String? = null
-    var conversacion: String? =null
+class Usuario {
+    var nombre: String? = null
+    var foto: String? = null
+    lateinit var conversaciones: ArrayList<Conversacion>
+
 
     // Empty constructor needed for Firestore serialization
     constructor()
 
-    constructor(text: String?, name: String?, photoUrl: String?, conversacion: String?) {
-        this.text = text
-        this.name = name
-        this.photoUrl = photoUrl
-        this.conversacion=conversacion
+    constructor(nombre: String?, foto: String?, conversaciones: ArrayList<Conversacion>) {
+        this.nombre = nombre
+        this.foto = foto
+        this.conversaciones = conversaciones
     }
-}
 
+
+}

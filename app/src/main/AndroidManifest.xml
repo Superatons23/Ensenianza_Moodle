@@ -17,7 +17,8 @@
         <activity android:name=".PantallaTarea"></activity>
         <activity android:name=".PantallaEntregarAsignacion" />
         <activity android:name=".PantallaClaseDetalle" />
-
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SignInActivity"/>
         <activity android:name=".PantallaVideo" />
         <activity android:name=".PantallaRecordarUsuario" />
         <activity android:name=".PantallaTutoriales" />
