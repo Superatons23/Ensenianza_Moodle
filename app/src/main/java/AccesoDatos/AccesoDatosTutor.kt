@@ -1,11 +1,8 @@
 package AccesoDatos
 
 
-import Dominio.Alumno
+import Dominio.*
 import android.content.Context
-import Dominio.Clase
-import Dominio.Parcial
-import Dominio.Tarea
 import apps.moviles.enseanza.R
 import apps.moviles.enseanza.repository.Repository
 import java.util.*
@@ -60,13 +57,34 @@ class AccesoDatosTutor {
 
         if (cursosData != null) {
             for (c in cursosData){
-                cursos.add(Clase(c.id,c.fullname,"Nombre profesor", R.drawable.cienciasmateria,c.summary,obtenerParciales(context,c.id,userid)))
+                var m=obtenerMaestros(c.id) as Maestro
+                cursos.add(Clase(c.id,c.fullname,m.nombre+" "+m.apellido, R.drawable.cienciasmateria,c.summary,obtenerParciales(context,c.id,userid)))
             }
         }
 
 
 
         return cursos;
+    }
+
+    fun obtenerMaestros(courseid: Int?): Maestro? {
+        var repository = Repository();
+        var maestrosRepo = repository.getMaestros(courseid)
+        var maestrosData = maestrosRepo.execute().body();
+
+
+        var maestros= ArrayList<Maestro>()
+
+        if (maestrosData != null) {
+            for (c in maestrosData){
+                maestros.add(Maestro(c.id.toInt(),c.firstname,c.lastname))
+                break
+            }
+        }
+
+
+
+        return maestros[0];
     }
 
     fun obtenerParciales(context: Context?, courseid: Int?,userid: Int?): ArrayList<Parcial> {
@@ -89,6 +107,7 @@ class AccesoDatosTutor {
 
         return parciales;
     }
+
 
 
 

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "757412872578",
+    "firebase_url": "https://ensenianzachat-default-rtdb.firebaseio.com",
+    "project_id": "ensenianzachat",
+    "storage_bucket": "ensenianzachat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757412872578:android:73e43bc90b7022d9df0f9b",
+        "android_client_info": {
+          "package_name": "apps.moviles.enseanza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "757412872578-kc88netoarguh4b6dpbuf4mpdbbvv4sn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "apps.moviles.enseanza",
+            "certificate_hash": "2c121e194d3e0d5167217827347597af36a623ed"
+          }
+        },
+        {
+          "client_id": "757412872578-b2jqrv913am4b0b92670sav3tam1c6bj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_ettwI6Frv2vLIhLY35c0doGTIgxcjOA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "757412872578-b2jqrv913am4b0b92670sav3tam1c6bj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

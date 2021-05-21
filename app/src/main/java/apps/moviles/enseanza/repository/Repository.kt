@@ -26,4 +26,7 @@ class Repository {
     fun getParcial(courseid:Int?): Call<List<Parcial>> {
         return RetrofitInstance.getAlumno.getParciales(courseid = courseid);
     }
+    fun getMaestros(courseid:Int?): Call<List<getMaestros>> {
+        return RetrofitInstance.getAlumno.getMaestros(courseid = courseid);
+    }
 }
