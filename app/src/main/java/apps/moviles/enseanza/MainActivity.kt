@@ -2,6 +2,7 @@ package apps.moviles.enseanza
 
 
 import Dominio.Alumno
+import Dominio.Maestro
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -16,13 +17,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import apps.moviles.enseanza.databinding.ActivityMainBinding
 import apps.moviles.enseanza.model.Conversacion
+import apps.moviles.enseanza.model.ConversacionDatos
 import apps.moviles.enseanza.model.FriendlyMessage
 import apps.moviles.enseanza.model.Usuario
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
@@ -38,19 +39,77 @@ class MainActivity : AppCompatActivity() {
     private lateinit var db: FirebaseDatabase
     private lateinit var adapter: FriendlyMessageAdapter
     private lateinit var usuario: Alumno
+    private lateinit var maestro: String
+    private lateinit var key:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var bundle=intent.extras
-        if(bundle!=null) {
-            usuario=bundle.get("usuario") as Alumno
+        var bundle = intent.extras
+        if (bundle != null) {
+            usuario = bundle.get("usuario") as Alumno
+            maestro = bundle.get("maestro") as String
+            key= bundle.get("key") as String
         }
-
-
+        val database = FirebaseDatabase.getInstance()
+        db=database
         // This codelab uses View Binding
         // See: https://developer.android.com/topic/libraries/view-binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
+        val messagesRef = database.reference.child(MESSAGES_CHILD).orderByChild("conversacion").equalTo(key)
+
+        // The FirebaseRecyclerAdapter class and options come from the FirebaseUI library
+        // See: https://github.com/firebase/FirebaseUI-Android
+        val options = FirebaseRecyclerOptions.Builder<FriendlyMessage>()
+            .setQuery(messagesRef, FriendlyMessage::class.java)
+            .build()
+        adapter = FriendlyMessageAdapter(options, getUserName())
+        binding.progressBar.visibility = ProgressBar.INVISIBLE
+        manager = LinearLayoutManager(applicationContext)
+        manager.stackFromEnd = true
+        binding.messageRecyclerView.layoutManager = manager
+        binding.messageRecyclerView.adapter = adapter
+
+
+
+        // Scroll down when a new message arrives
+        // See MyScrollToBottomObserver for details
+        adapter.registerAdapterDataObserver(
+            MyScrollToBottomObserver(binding.messageRecyclerView, adapter, manager)
+        )
+        // Disable the send button when there's no text in the input field
+        // See MyButtonObserver for details
+        binding.messageEditText.addTextChangedListener(MyButtonObserver(binding.sendButton))
+
+
+        // When the send button is clicked, send a text message
+        binding.sendButton.setOnClickListener {
+            val friendlyMessage = FriendlyMessage(
+                binding.messageEditText.text.toString(),
+                getUserName(),
+                getPhotoUrl(),
+                key
+            )
+            /*
+                       var mensajes=ArrayList<FriendlyMessage>()
+                       mensajes.add(friendlyMessage)
+
+                       var conversacion=Conversacion(usuario.nombre,"profe manuela")
+                       var conversaciones=ArrayList<Conversacion>()
+                       db.reference.child("conversaciones").push().setValue(conversacion)*/
+            database.reference.child(MESSAGES_CHILD).push().setValue(friendlyMessage)
+            binding.messageEditText.setText("")
+        }
+
+        // When the image button is clicked, launch the image picker
+        binding.addMessageImageView.setOnClickListener {
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            intent.type = "image/*"
+            startActivityForResult(intent, REQUEST_IMAGE)
+        }
 
         /*
         // Initialize Firebase Auth and check if the user is signed in
@@ -69,57 +128,10 @@ class MainActivity : AppCompatActivity() {
         signInClient = GoogleSignIn.getClient(this, gso)
 */
         // Initialize Realtime Database
-        db = Firebase.database
-        val messagesRef = db.reference.child(MESSAGES_CHILD)
 
-        // The FirebaseRecyclerAdapter class and options come from the FirebaseUI library
-        // See: https://github.com/firebase/FirebaseUI-Android
-        val options = FirebaseRecyclerOptions.Builder<FriendlyMessage>()
-            .setQuery(messagesRef, FriendlyMessage::class.java)
-            .build()
-        adapter = FriendlyMessageAdapter(options, getUserName())
-        binding.progressBar.visibility = ProgressBar.INVISIBLE
-        manager = LinearLayoutManager(this)
-        manager.stackFromEnd = true
-        binding.messageRecyclerView.layoutManager = manager
-        binding.messageRecyclerView.adapter = adapter
 
-        // Scroll down when a new message arrives
-        // See MyScrollToBottomObserver for details
-        adapter.registerAdapterDataObserver(
-            MyScrollToBottomObserver(binding.messageRecyclerView, adapter, manager)
-        )
 
-        // Disable the send button when there's no text in the input field
-        // See MyButtonObserver for details
-        binding.messageEditText.addTextChangedListener(MyButtonObserver(binding.sendButton))
 
-        // When the send button is clicked, send a text message
-        binding.sendButton.setOnClickListener {
-            val friendlyMessage = FriendlyMessage(
-                binding.messageEditText.text.toString(),
-                getUserName(),
-                getPhotoUrl(),
-                "-MaBn2z-uGPl93i8BRZG"
-            )
-            /*
-                       var mensajes=ArrayList<FriendlyMessage>()
-                       mensajes.add(friendlyMessage)
-
-                       var conversacion=Conversacion(usuario.nombre,"profe manuela")
-                       var conversaciones=ArrayList<Conversacion>()
-                       db.reference.child("conversaciones").push().setValue(conversacion)*/
-            db.reference.child(MESSAGES_CHILD).push().setValue(friendlyMessage)
-            binding.messageEditText.setText("")
-        }
-
-        // When the image button is clicked, launch the image picker
-        binding.addMessageImageView.setOnClickListener {
-            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-            intent.addCategory(Intent.CATEGORY_OPENABLE)
-            intent.type = "image/*"
-            startActivityForResult(intent, REQUEST_IMAGE)
-        }
     }
 
     public override fun onStart() {
@@ -169,7 +181,7 @@ class MainActivity : AppCompatActivity() {
             if (resultCode == RESULT_OK && data != null) {
                 val uri = data.data
                 Log.d(TAG, "Uri: " + uri.toString())
-                val user = auth.currentUser
+                val user = getUserName()
                 val tempMessage =
                     FriendlyMessage(null, getUserName(), getPhotoUrl(), LOADING_IMAGE_URL)
                 db.reference.child(MESSAGES_CHILD).push()
@@ -187,7 +199,7 @@ class MainActivity : AppCompatActivity() {
                             // Build a StorageReference and then upload the file
                             val key = databaseReference.key
                             val storageReference = Firebase.storage
-                                .getReference(user!!.uid)
+                                .getReference(LOCATION_SERVICE)
                                 .child(key!!)
                                 .child(uri!!.lastPathSegment!!)
                             putImageInStorage(storageReference, uri, key)
@@ -246,7 +258,7 @@ class MainActivity : AppCompatActivity() {
         } else ANONYMOUS
 
          */
-        return usuario.nombre+" "+usuario.apellido
+        return usuario.nombre + " " + usuario.apellido
     }
 
     companion object {
@@ -257,3 +269,4 @@ class MainActivity : AppCompatActivity() {
         private const val LOADING_IMAGE_URL = "https://www.google.com/images/spin-32.gif"
     }
 }
+

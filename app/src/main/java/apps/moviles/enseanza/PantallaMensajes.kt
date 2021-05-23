@@ -2,22 +2,22 @@ package apps.moviles.enseanza
 
 import Dominio.Alumno
 import Dominio.Clase
-import Dominio.Usuario
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import androidx.core.content.ContextCompat.startActivity
-import com.squareup.picasso.Picasso
+import androidx.appcompat.app.AppCompatActivity
+import apps.moviles.enseanza.model.ConversacionDatos
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_pantalla_mensaje.view.*
 import kotlinx.android.synthetic.main.activity_pantalla_mensajes.*
-import kotlinx.android.synthetic.main.activity_pantalla_mensajes.view.*
-import kotlinx.android.synthetic.main.activity_pantalla_perfil.*
-import kotlinx.android.synthetic.main.activity_pantalla_principal.*
 
 class PantallaMensajes : AppCompatActivity() {
     var adapter: MensajesAdapter? = null
@@ -52,11 +52,11 @@ class PantallaMensajes : AppCompatActivity() {
 class MensajesAdapter: BaseAdapter {
     var mensajes= ArrayList<Mensaje>()
     var contexto: Context? =null
-    var alumno: Alumno? =null
+    var usuario: Alumno? =null
     constructor(contexto: Context, mensajes: ArrayList<Mensaje>, usuario: Alumno){
         this.contexto=contexto
         this.mensajes=mensajes
-        this.alumno=usuario
+        this.usuario=usuario
     }
 
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
@@ -64,10 +64,67 @@ class MensajesAdapter: BaseAdapter {
         var inflador=contexto!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         var vista=inflador.inflate(R.layout.activity_pantalla_mensaje, null)
         vista.setOnClickListener(){
-            var intent=Intent(contexto, MainActivity::class.java)
-            intent.putExtra("usuario",alumno)
-            intent.putExtra("nombreProfesor", mensaje.to)
-            contexto!!.startActivity(intent)
+            val database = FirebaseDatabase.getInstance()
+
+            val conversacion = database.getReference("conversaciones");
+
+            val alumno: String? = usuario?.nombre + " " + usuario?.apellido
+            val profesor: String? = mensaje.from
+            var encontrado: Boolean = false
+            var fetched = false
+            var key: String = ""
+            conversacion.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+
+                    for (i in dataSnapshot.children) {
+
+                        //obtener nombre(se peude obtener mas elementos)
+                        var nombreAlumno = i.child("nombreAlumno").getValue(String::class.java)
+                        var nombreProfe = i.child("nombreProfe").getValue(String::class.java)
+                        if (alumno.equals(nombreAlumno) && profesor.equals(nombreProfe)) {
+                            encontrado = true
+                            key = i.key.toString();
+                            Log.d("Conversacion", "id de conversacion: $key")
+
+                            break;
+                        }
+                        println("o no")
+                    }
+                    if (!encontrado) {
+                        var nuevaconvo= ConversacionDatos(profesor,alumno)
+                        val myRef = database.getReference("conversaciones").push();
+
+                        myRef.child("nombreAlumno").setValue(nuevaconvo.nombreAlumno);
+                        myRef.child("nombreProfe").setValue(nuevaconvo.nombreProfe);
+                        key=myRef.key.toString()
+                        Log.d("Conversacion", "id de conversacion nueva: $key")
+                    }
+
+                    if (!fetched) {
+
+                        var intent = Intent(contexto, MainActivity::class.java)
+                        intent.putExtra("usuario", usuario)
+                        intent.putExtra("maestro", mensaje.from)
+                        intent.putExtra("key", key)
+                        contexto!!.startActivity(intent)
+                        fetched=true
+                    }
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                    Log.w("Conversacion", "Failed to read value.", error.toException())
+                }
+
+            })
+
+
+
+
+
         }
         vista.tv_mensaje.setText(mensaje.mensaje)
         vista.tv_nombre.setText(mensaje.from)

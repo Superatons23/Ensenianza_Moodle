@@ -16,17 +16,20 @@
 package apps.moviles.enseanza.model
 
 class Conversacion {
-    var profesor: String? = null
-    var alumno: String? = null
-
+    var conversacion:String?=null
+    var name:String?=null
+    var photoUrl:String?=null
+    var text:String?=null
 
 
     // Empty constructor needed for Firestore serialization
     constructor()
-    constructor(profesor: String?, alumno: String?) {
-        this.profesor = profesor
-        this.alumno = alumno
 
+    constructor(conversacion: String?, name: String?, photoUrl: String?, text: String?) {
+        this.conversacion = conversacion
+        this.name = name
+        this.photoUrl = photoUrl
+        this.text = text
     }
 
 
