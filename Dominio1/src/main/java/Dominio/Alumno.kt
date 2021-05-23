@@ -7,6 +7,7 @@ class Alumno : Parcelable{
 
     var id: Int? =-1
     var nombre: String?=""
+    var userName: String?=""
     var apellido: String?=""
     var email: String?=""
     var foto: String?=""
@@ -32,7 +33,8 @@ class Alumno : Parcelable{
         foto = source.readString()
     }
 
-    constructor(id:Int?, nombre: String?, apellido: String?, email: String?,foto:String?) {
+    constructor(userName:String?,id:Int?, nombre: String?, apellido: String?, email: String?,foto:String?) {
+     this.userName=userName;
         this.id=id
         this.nombre = nombre
         this.apellido = apellido

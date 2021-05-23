@@ -33,7 +33,7 @@ class AccesoDatosTutor {
         var repository = Repository();
         var alumno = repository.getAlumno(usuario)
         var alumnoData = alumno.execute().body()?.get(0);
-        var a=Alumno(alumnoData?.id,alumnoData?.firstname, alumnoData?.lastname, alumnoData?.email, alumnoData?.profileimageurl)
+        var a=Alumno(alumnoData?.username,alumnoData?.id,alumnoData?.firstname, alumnoData?.lastname, alumnoData?.email, alumnoData?.profileimageurl)
         println("nombre")
         println(a.nombre)
         println("apellido")

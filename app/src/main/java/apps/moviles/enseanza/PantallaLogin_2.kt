@@ -1,6 +1,7 @@
 package apps.moviles.enseanza
 
 import Dominio.Clase
+import Dominio.Curso
 import Negocio.FachadaNegocio
 import Negocio.Factory
 import android.content.Intent
@@ -23,6 +24,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import okhttp3.internal.wait
 import java.net.URL
+import kotlin.collections.ArrayList
 
 
 class PantallaLogin_2 : AppCompatActivity() {
@@ -75,11 +77,36 @@ class PantallaLogin_2 : AppCompatActivity() {
             if (isUser == true) {
                 println("abriendo pantalla principal")
                 var alumno=fachadaNegocio.obtenerAlumno(this,user)
-                var cursos=fachadaNegocio.obtenerCursos(this,alumno?.id) as ArrayList<Clase>
-                val intent = Intent(this,PantallaPrincipal::class.java)
+
+
+              //
                 if (alumno != null) {
-                    intent.putExtra("alumno",alumno)
-                    intent.putParcelableArrayListExtra("cursos",cursos)
+                    //validar que sea mtro o estudiante
+                    val list = alumno.userName?.split("_")
+                    var intent: Intent? =null
+
+                    //estudiante
+                    if(list?.get(0).equals("estudiante")){
+                        var cursos=fachadaNegocio.obtenerCursos(this,alumno?.id) as ArrayList<Clase>
+                         intent = Intent(this,PantallaPrincipal::class.java)
+                        intent.putExtra("alumno",alumno)
+                        intent.putParcelableArrayListExtra("cursos",cursos)
+                    //maestro
+                    }else if(list?.get(0).equals("maestro")){
+
+                        //obtener cursos que imparte el maistro
+                        var cursosMtro=fachadaNegocio.obtenerCursosMtro(this,alumno?.id) as ArrayList<Curso>;
+
+                        intent = Intent(this,PantallaPrincipalMaestro::class.java)
+
+                        //set cursos a la siguiente activity
+                        intent.putExtra("alumno",alumno)
+                        intent.putParcelableArrayListExtra("cursos",cursosMtro)
+
+
+                    }
+
+
                     this.startActivity(intent)
                     this.isRunning=false;
 
@@ -87,7 +114,7 @@ class PantallaLogin_2 : AppCompatActivity() {
 
 
             } else {
-
+                this.isRunning=false;
                 @WorkerThread
                 fun workerThread() {
                     ContextCompat.getMainExecutor(this).execute {
@@ -112,39 +139,5 @@ class PantallaLogin_2 : AppCompatActivity() {
 
     }
 
-    fun authUser() {
-        var contrasenia: String = et_contrasenia.text.toString();
-        var user: String? = et_correo.text.toString();
 
-        var url: String =
-            "https://cuervos.moodlecloud.com/login/token.php?username=$user&password=$contrasenia&service=moodle_mobile_app";
-
-
-        var que = Volley.newRequestQueue(this);
-        var reques =
-            JsonObjectRequest(
-                Request.Method.GET,
-                url,
-                null,
-                com.android.volley.Response.Listener { response ->
-
-                    if (response.has("token")) startActivity(
-                        Intent(
-                            this,
-                            PantallaPrincipal::class.java
-                        )
-                    ) else Toast.makeText(
-                        this,
-                        "Ingresar Credenciales validas",
-                        Toast.LENGTH_SHORT
-                    ).show();
-
-
-                },
-                com.android.volley.Response.ErrorListener {
-
-                })
-        que.add(reques);
-
-    }
 }

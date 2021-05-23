@@ -104,7 +104,7 @@ class PantallaPrincipal : AppCompatActivity() {
             startActivity(intent)
         }
 
-//levarte donde estan los tutos
+        //levarte donde estan los tutos
         print_recycler_view_tutorias.setOnClickListener() {
             startActivity(Intent(this, PantallaTutoriales::class.java))
         }

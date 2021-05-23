@@ -1,6 +1,8 @@
 package Negocio
 
 import Dominio.Alumno
+import Dominio.Clase
+import Dominio.Curso
 import android.content.Context
 
 interface iNegocio {
@@ -8,4 +10,6 @@ interface iNegocio {
     fun cerrarSesion(): Boolean
     fun subirTarea(): Boolean
     fun obtenerAlumno(context: Context?, usuario: String?): Alumno?
+    fun obtenerCursos(context: Context?, userid: Int?): List<Clase>?
+    fun obtenerCursosMtro(context: Context?, userid: Int?): List<Curso>?
 }

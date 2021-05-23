@@ -3,6 +3,7 @@ package Negocio
 import Dominio.Alumno
 import android.content.Context
 import Dominio.Clase
+import Dominio.Curso
 
 class FachadaNegocio:iNegocio {
     override fun iniciarSesion(context: Context?, usuario: String?, contrasenia: String?): Boolean? {
@@ -23,8 +24,13 @@ class FachadaNegocio:iNegocio {
         return negocio.obtenerAlumno(context,usuario);
     }
 
-    fun obtenerCursos(context: Context?, userid: Int?): List<Clase>? {
+    override fun obtenerCursos(context: Context?, userid: Int?): List<Clase>? {
         var negocio:CtrlTutor  = CtrlTutor();
+        return negocio.obtenerCursos(context,userid);
+    }
+
+    override fun obtenerCursosMtro(context: Context?, userid: Int?): List<Curso>? {
+        var negocio:CtrlMtro  = CtrlMtro();
         return negocio.obtenerCursos(context,userid);
     }
 

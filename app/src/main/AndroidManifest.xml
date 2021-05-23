@@ -2,23 +2,28 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="apps.moviles.enseanza">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@drawable/iconosimbolo"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@drawable/iconosimbolo"
         android:supportsRtl="true"
-
-        android:theme="@style/Theme.Enseñanza"
-        android:hardwareAccelerated="false"
-        android:largeHeap="true">
-        <activity android:name=".PantallaTarea"></activity>
+        android:theme="@style/Theme.Enseñanza">
+        <activity android:name=".PantallaCursos"></activity>
+        <activity android:name=".Avalar_tareas" />
+        <activity
+            android:name=".PantallaPrincipalMaestro"
+            android:label="@string/title_activity_pantalla_principal_maestro"
+            android:theme="@style/Theme.Enseñanza.NoActionBar" />
+        <activity android:name=".PantallaTarea" />
         <activity android:name=".PantallaEntregarAsignacion" />
         <activity android:name=".PantallaClaseDetalle" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".SignInActivity"/>
+        <activity android:name=".SignInActivity" />
         <activity android:name=".PantallaVideo" />
         <activity android:name=".PantallaRecordarUsuario" />
         <activity android:name=".PantallaTutoriales" />
@@ -34,16 +39,14 @@
         <activity android:name=".PantallaConectar" />
         <activity android:name=".PantallaLogin_2" />
         <activity android:name=".PantallaRegistrate" />
-
-        <activity android:name=".PantallaMenu"/>
-
+        <activity android:name=".PantallaMenu" />
         <activity android:name=".PantallaLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

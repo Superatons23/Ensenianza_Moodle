@@ -4,6 +4,6 @@ import java.util.*
 
 class Asignacion(
     nombre: String?,
-    fechaInicio: Date?,
-    fechaEntrega: Date?
+    fechaInicio: String?,
+    fechaEntrega: String?
 ) : Actividad(nombre!!, fechaInicio!!, fechaEntrega!!) 
