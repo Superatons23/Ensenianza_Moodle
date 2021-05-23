@@ -32,11 +32,13 @@
         <activity android:name=".PantallaClasesGrabadas" />
         <activity android:name=".PantallaClases" />
         <activity android:name=".PantallaClase" />
+        <activity android:name=".PantallaMensajesMaestro" />
         <activity android:name=".PantallaMensaje" />
         <activity android:name=".PantallaPrincipal" />
         <activity android:name=".PantallaMensajes" />
         <activity android:name=".PantallaPerfil" />
         <activity android:name=".PantallaConectar" />
+        <activity android:name=".ChatMaestro" />
         <activity android:name=".PantallaLogin_2" />
         <activity android:name=".PantallaRegistrate" />
         <activity android:name=".PantallaMenu" />

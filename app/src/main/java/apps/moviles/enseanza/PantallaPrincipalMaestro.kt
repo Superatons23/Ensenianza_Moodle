@@ -7,7 +7,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_pantalla_principal.*
 import kotlinx.android.synthetic.main.activity_pantalla_principal_maestro.*
 import kotlinx.android.synthetic.main.activity_pantalla_principal_maestro.prin_btn_tareas
 import java.util.ArrayList
@@ -36,6 +35,12 @@ class PantallaPrincipalMaestro : AppCompatActivity() {
             var intent = Intent(this, PantallaCursos::class.java)
             intent.putParcelableArrayListExtra("cursos",cursos)
 
+            startActivity(intent)
+        }
+
+        prin_btn_mensajes.setOnClickListener {
+            var intent = Intent(this, PantallaMensajesMaestro::class.java)
+            intent.putExtra("usuario",usuario)
             startActivity(intent)
         }
     }

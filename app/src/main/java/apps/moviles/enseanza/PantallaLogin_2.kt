@@ -95,6 +95,7 @@ class PantallaLogin_2 : AppCompatActivity() {
                     }else if(list?.get(0).equals("maestro")){
 
                         //obtener cursos que imparte el maistro
+
                         var cursosMtro=fachadaNegocio.obtenerCursosMtro(this,alumno?.id) as ArrayList<Curso>;
 
                         intent = Intent(this,PantallaPrincipalMaestro::class.java)
